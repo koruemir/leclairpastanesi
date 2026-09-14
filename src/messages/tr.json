@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "Büyükçekmece Güzelce Dijital Menü"
+  },
+  "header": {
+    "overline": "Sofistike ama samimi menü",
+    "title": "Büyükçekmece Güzelce Menüsü",
+    "subtitle": "Waffle, ekler ve mini tatlılar için kategorili, mobil odaklı ve WhatsApp odaklı menü."
+  },
+  "actions": {
+    "whatsapp": {
+      "contact": "WhatsApp ile iletişim",
+      "orderWithProduct": "Ürün için mesaj at",
+      "openWhatsapp": "WhatsApp'a git",
+      "missingNumber": "WhatsApp numarası bekleniyor"
+    }
+  },
+  "menu": {
+    "all": "Tüm Kategoriler",
+    "empty": "Henüz menüye ürün eklenmemiş. Lütfen ürün verileri ve görselleri proje veri katmanından güncelleyin.",
+    "header": "Menü",
+    "noDescription": "Ürün açıklaması eklenmedi"
+  },
+  "states": {
+    "emptyTitle": "Menü henüz hazır değil",
+    "soldOut": "Tükendi",
+    "priceUnknown": "Fiyat alınacak",
+    "missingPhone": "WhatsApp ayarı bekleniyor"
+  }
+}

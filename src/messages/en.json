@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "Buyukcekmeciguzelce Digital Menu"
+  },
+  "header": {
+    "overline": "Minimal and cozy menu",
+    "title": "Büyükçekmece Güzelce Menu",
+    "subtitle": "Waffle, éclairs, and mini desserts with category browsing optimized for mobile and WhatsApp contact."
+  },
+  "actions": {
+    "whatsapp": {
+      "contact": "Message on WhatsApp",
+      "orderWithProduct": "Ask about this item",
+      "openWhatsapp": "Open WhatsApp",
+      "missingNumber": "WhatsApp number is not configured"
+    }
+  },
+  "menu": {
+    "all": "All Categories",
+    "empty": "The menu has no products yet. Please update product and image data in the data source.",
+    "header": "Menu",
+    "noDescription": "No description added"
+  },
+  "states": {
+    "emptyTitle": "Menu is not configured yet",
+    "soldOut": "Out of stock",
+    "priceUnknown": "Price on request",
+    "missingPhone": "WhatsApp setup is pending"
+  }
+}

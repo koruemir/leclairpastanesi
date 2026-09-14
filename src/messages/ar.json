@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "قائمة بيضوكهتجي جيزلجه الرقمية"
+  },
+  "header": {
+    "overline": "قائمة أنيقة ومألوفة",
+    "title": "قائمة بيضوكهتجي جيزلجه",
+    "subtitle": "تصفح الوافل والكعك الصغير والحلويات بسهولة من خلال واجهة الهاتف ودعم WhatsApp."
+  },
+  "actions": {
+    "whatsapp": {
+      "contact": "إرسال رسالة عبر WhatsApp",
+      "orderWithProduct": "اسأل عن هذا المنتج",
+      "openWhatsapp": "فتح WhatsApp",
+      "missingNumber": "رقم WhatsApp غير مهيأ"
+    }
+  },
+  "menu": {
+    "all": "جميع الفئات",
+    "empty": "القائمة لا تحتوي على منتجات بعد. يرجى تحديث بيانات المنتجات والصور من مصدر البيانات.",
+    "header": "القائمة",
+    "noDescription": "لا يوجد وصف"
+  },
+  "states": {
+    "emptyTitle": "القائمة غير مكوّنة بعد",
+    "soldOut": "نفد المخزون",
+    "priceUnknown": "السعر عند الطلب",
+    "missingPhone": "إعداد WhatsApp قيد الانتظار"
+  }
+}

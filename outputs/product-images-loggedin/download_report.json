@@ -1,0 +1,690 @@
+{
+  "collectedAt": "2026-09-14T21:52:27.476Z",
+  "totalProducts": 95,
+  "downloaded": 95,
+  "failed": 0,
+  "missingImageUrl": 0,
+  "files": {
+    "inputJson": "/Users/ek/Documents/Codex/2026-09-15/https-toptanpastacim-com/outputs/toptanpastacim-urunler-girisli-2026-09-14T21-47-54.json",
+    "csvInput": "/Users/ek/Documents/Codex/2026-09-15/https-toptanpastacim-com/outputs/toptanpastacim-urunler-girisli-2026-09-14T21-47-54.csv",
+    "imagesDir": "/Users/ek/Documents/Codex/2026-09-15/https-toptanpastacim-com/outputs/product-images-loggedin",
+    "zip": "/Users/ek/Documents/Codex/2026-09-15/https-toptanpastacim-com/outputs/toptanpastacim-urun-gorselleri-girisli-2026-09-14T21-51-08.zip",
+    "report": "/Users/ek/Documents/Codex/2026-09-15/https-toptanpastacim-com/outputs/product-images-loggedin/download_report.json"
+  },
+  "login": {
+    "CariKodu": "120-01-564",
+    "CariAdi": "RAHMİ OĞUZHAN KINAY (GÜZELCE LECLAİR)",
+    "Email": "48475258564",
+    "VergiNumarasi": "12345",
+    "Tip": "M",
+    "OnOdeme": ""
+  },
+  "downloadedFiles": [
+    {
+      "index": 1,
+      "file": "001_antep_fistikli_muhallebi_ANTEP FISTIKLI MUHALLEBİ.png",
+      "product_name": "ANTEP FISTIKLI MUHALLEBİ",
+      "image_url": "https://toptanpastacim.com/Resimler/f4c0824b-7f56-4eb7-8a39-15bd39912f4f.png",
+      "source": "https://toptanpastacim.com/product/152-04-00018/antep-fistikli-muhallebi/152-04"
+    },
+    {
+      "index": 2,
+      "file": "002_babarovski_BABAROVSKİ.jpg",
+      "product_name": "BABAROVSKİ",
+      "image_url": "https://toptanpastacim.com/Resimler/5bbbb748-4dea-405d-9ffa-8a6260762461.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00001/babarovski/152-02"
+    },
+    {
+      "index": 3,
+      "file": "003_babarovski_no_0_BABAROVSKİ NO 0.jpg",
+      "product_name": "BABAROVSKİ NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/bdea2449-882b-4152-8d7e-9c71ed0fa5b4.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00001/babarovski-no-0/152-01"
+    },
+    {
+      "index": 4,
+      "file": "004_babarovski_no_1_BABAROVSKİ NO 1.jpg",
+      "product_name": "BABAROVSKİ NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/164c3d0a-43f5-492e-9c25-8b172fe39b42.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00002/babarovski-no-1/152-01"
+    },
+    {
+      "index": 5,
+      "file": "005_babarovski_no_2_BABAROVSKİ NO 2.jpg",
+      "product_name": "BABAROVSKİ NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/8c9f7852-132c-4633-b60b-49f6d44f9295.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00003/babarovski-no-2/152-01"
+    },
+    {
+      "index": 6,
+      "file": "006_bambu_frambuaz_BAMBU FRAMBUAZ.jpg",
+      "product_name": "BAMBU FRAMBUAZ",
+      "image_url": "https://toptanpastacim.com/Resimler/775a78ce-2d75-47bb-a211-384d980f6821.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00003/bambu-frambuaz/152-02"
+    },
+    {
+      "index": 7,
+      "file": "007_buyuk_ekler_antep_fistik_BÜYÜK EKLER ANTEP FISTIK.jpeg",
+      "product_name": "BÜYÜK EKLER ANTEP FISTIK",
+      "image_url": "https://toptanpastacim.com/Resimler/37753e2c-0c3d-4137-891f-ecfa35203417.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00018/buyuk-ekler-antep-fistik/152-03"
+    },
+    {
+      "index": 8,
+      "file": "008_buyuk_ekler_bol_cikolatali_BÜYÜK EKLER BOL ÇİKOLATA.jpeg",
+      "product_name": "BÜYÜK EKLER BOL ÇİKOLATALI",
+      "image_url": "https://toptanpastacim.com/Resimler/eeddd0a7-815d-43f7-9632-c6d54564e8e2.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00019/buyuk-ekler-bol-cikolatali/152-03"
+    },
+    {
+      "index": 9,
+      "file": "009_buyuk_ekler_cilek_BÜYÜK EKLER ÇİLEK.jpeg",
+      "product_name": "BÜYÜK EKLER ÇİLEK",
+      "image_url": "https://toptanpastacim.com/Resimler/10d7c8bb-1cdf-4840-b59a-41472f293a35.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00028/buyuk-ekler-cilek/152-03"
+    },
+    {
+      "index": 10,
+      "file": "010_buyuk_ekler_frambuaz_BÜYÜK EKLER FRAMBUAZ.jpeg",
+      "product_name": "BÜYÜK EKLER FRAMBUAZ",
+      "image_url": "https://toptanpastacim.com/Resimler/1b630696-964a-4d20-b70c-90c5b33c2cf9.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00027/buyuk-ekler-frambuaz/152-03"
+    },
+    {
+      "index": 11,
+      "file": "011_buyuk_ekler_karamel_BÜYÜK EKLER KARAMEL.jpeg",
+      "product_name": "BÜYÜK EKLER KARAMEL",
+      "image_url": "https://toptanpastacim.com/Resimler/021b8547-3977-4bed-80d9-9887f35abd06.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00025/buyuk-ekler-karamel/152-03"
+    },
+    {
+      "index": 12,
+      "file": "012_buyuk_ekler_klasik_BÜYÜK EKLER KLASİK.jpeg",
+      "product_name": "BÜYÜK EKLER KLASİK",
+      "image_url": "https://toptanpastacim.com/Resimler/bf3a1c8f-f258-4784-8f16-e02a2e0b0b6c.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00021/buyuk-ekler-klasik/152-03"
+    },
+    {
+      "index": 13,
+      "file": "013_buyuk_ekler_limon_BÜYÜK EKLER LİMON.jpeg",
+      "product_name": "BÜYÜK EKLER LİMON",
+      "image_url": "https://toptanpastacim.com/Resimler/8166bebc-4059-4c1f-81bc-8a96158f7940.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00029/buyuk-ekler-limon/152-03"
+    },
+    {
+      "index": 14,
+      "file": "014_buyuk_ekler_lotus_BÜYÜK EKLER LOTUS.jpeg",
+      "product_name": "BÜYÜK EKLER LOTUS",
+      "image_url": "https://toptanpastacim.com/Resimler/c0b04f5f-79fa-499e-959e-191af43a3edc.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00020/buyuk-ekler-lotus/152-03"
+    },
+    {
+      "index": 15,
+      "file": "015_buyuk_ekler_muz_BÜYÜK EKLER MUZ.jpeg",
+      "product_name": "BÜYÜK EKLER MUZ",
+      "image_url": "https://toptanpastacim.com/Resimler/73143437-9d7b-4238-9d3f-8455916615b5.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00031/buyuk-ekler-muz/152-03"
+    },
+    {
+      "index": 16,
+      "file": "016_buyuk_ekler_oreo_BÜYÜK EKLER OREO.jpeg",
+      "product_name": "BÜYÜK EKLER OREO",
+      "image_url": "https://toptanpastacim.com/Resimler/c7fc8f71-8371-4fb8-9eed-02495527bf56.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00022/buyuk-ekler-oreo/152-03"
+    },
+    {
+      "index": 17,
+      "file": "017_buyuk_ekler_portakal_BÜYÜK EKLER PORTAKAL.jpeg",
+      "product_name": "BÜYÜK EKLER PORTAKAL",
+      "image_url": "https://toptanpastacim.com/Resimler/53b28649-3242-4d6d-9da4-bd51625146af.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00030/buyuk-ekler-portakal/152-03"
+    },
+    {
+      "index": 18,
+      "file": "018_buyuk_ekler_tiramisu_BÜYÜK EKLER TİRAMİSU.jpeg",
+      "product_name": "BÜYÜK EKLER TİRAMİSU",
+      "image_url": "https://toptanpastacim.com/Resimler/ac941eee-3fdb-42e8-9db6-afde447984fb.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00024/buyuk-ekler-tiramisu/152-03"
+    },
+    {
+      "index": 19,
+      "file": "019_buyuk_ekler_visne_BÜYÜK EKLER VİŞNE.jpeg",
+      "product_name": "BÜYÜK EKLER VİŞNE",
+      "image_url": "https://toptanpastacim.com/Resimler/4adabad3-518e-4fa7-9544-303b79e5b200.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00026/buyuk-ekler-visne/152-03"
+    },
+    {
+      "index": 20,
+      "file": "020_cheesecake_karisik_CHEESECAKE KARIŞIK.jpg",
+      "product_name": "CHEESECAKE KARIŞIK",
+      "image_url": "https://toptanpastacim.com/Resimler/5dd179d8-3053-46cc-83cb-dea964405a54.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00013/cheesecake-karisik/152-05"
+    },
+    {
+      "index": 21,
+      "file": "021_cheesecake_lotus_CHEESECAKE LOTUS.jpeg",
+      "product_name": "CHEESECAKE LOTUS",
+      "image_url": "https://toptanpastacim.com/Resimler/b581fb11-9ddd-4c1d-b671-27db59150ab7.jpeg",
+      "source": "https://toptanpastacim.com/product/152-05-00027/cheesecake-lotus/152-05"
+    },
+    {
+      "index": 22,
+      "file": "022_cikolatali_no_0_ÇİKOLATALI NO 0.jpg",
+      "product_name": "ÇİKOLATALI NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/c192c30b-c559-4f40-80d1-dd8ad3252f0a.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00004/cikolatali-no-0/152-01"
+    },
+    {
+      "index": 23,
+      "file": "023_cikolatali_no_1_ÇİKOLATALI NO 1.jpg",
+      "product_name": "ÇİKOLATALI NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/3582a07e-f5d2-40e2-8c9a-9c4ef789ba58.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00005/cikolatali-no-1/152-01"
+    },
+    {
+      "index": 24,
+      "file": "024_cikolatali_no_2_ÇİKOLATALI NO 2.jpg",
+      "product_name": "ÇİKOLATALI NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/8aa34dec-c95c-4d59-a6de-07ed06e95fe8.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00006/cikolatali-no-2/152-01"
+    },
+    {
+      "index": 25,
+      "file": "025_cilek_oreo_no_0_ÇİLEK OREO NO 0.jpg",
+      "product_name": "ÇİLEK OREO NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/1d504ed5-ef6d-48c6-9985-34d3250f02d5.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00043/cilek-oreo-no-0/152-01"
+    },
+    {
+      "index": 26,
+      "file": "026_cilek_oreo_no_1_ÇİLEK OREO NO 1.jpg",
+      "product_name": "ÇİLEK OREO NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/002f2722-84b9-4cac-8edf-6af8eaf3cc00.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00044/cilek-oreo-no-1/152-01"
+    },
+    {
+      "index": 27,
+      "file": "027_cilek_oreo_no_2_ÇİLEK OREO NO 2.jpg",
+      "product_name": "ÇİLEK OREO NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/99026c4e-c82b-4759-8750-6bf3fe5d1da6.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00045/cilek-oreo-no-2/152-01"
+    },
+    {
+      "index": 28,
+      "file": "028_damla_sakizli_bademli_muhallebi_DAMLA SAKIZLI BADEMLİ MU.png",
+      "product_name": "DAMLA SAKIZLI BADEMLİ MUHALLEBİ",
+      "image_url": "https://toptanpastacim.com/Resimler/fe82a8eb-1fdc-4753-b9fb-84f007ee93a3.png",
+      "source": "https://toptanpastacim.com/product/152-04-00019/damla-sakizli-bademli-muhallebi/152-04"
+    },
+    {
+      "index": 29,
+      "file": "029_dubai_no_0_DUBAİ NO 0.jpeg",
+      "product_name": "DUBAİ NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/02b74986-fe19-41fe-a5d1-bc2fb2c96759.jpeg",
+      "source": "https://toptanpastacim.com/product/152-01-00080/dubai-no-0/152-01"
+    },
+    {
+      "index": 30,
+      "file": "030_dubai_no_1_DUBAİ NO 1.jpeg",
+      "product_name": "DUBAİ NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/aa7c9d13-9344-4359-9309-38d831046de6.jpeg",
+      "source": "https://toptanpastacim.com/product/152-01-00081/dubai-no-1/152-01"
+    },
+    {
+      "index": 31,
+      "file": "031_dubai_no_2_DUBAİ NO 2.jpeg",
+      "product_name": "DUBAİ NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/2d9d99e5-0c3a-445f-b02c-9ec5d21ee996.jpeg",
+      "source": "https://toptanpastacim.com/product/152-01-00082/dubai-no-2/152-01"
+    },
+    {
+      "index": 32,
+      "file": "032_ekler_antep_fistik_EKLER ANTEP FISTIK.jpg",
+      "product_name": "EKLER ANTEP FISTIK",
+      "image_url": "https://toptanpastacim.com/Resimler/d2686106-cf66-4c7b-ad3d-8d4cbc4dcedc.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00002/ekler-antep-fistik/152-03"
+    },
+    {
+      "index": 33,
+      "file": "033_ekler_cilekli_EKLER ÇİLEKLİ.jpg",
+      "product_name": "EKLER ÇİLEKLİ",
+      "image_url": "https://toptanpastacim.com/Resimler/63a7029b-a64b-4401-9534-cdaa5ea3b91f.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00004/ekler-cilekli/152-03"
+    },
+    {
+      "index": 34,
+      "file": "034_ekler_frambuazli_EKLER FRAMBUAZLI.jpg",
+      "product_name": "EKLER FRAMBUAZLI",
+      "image_url": "https://toptanpastacim.com/Resimler/7366bca1-a9d2-48ee-bb01-009391bf8094.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00005/ekler-frambuazli/152-03"
+    },
+    {
+      "index": 35,
+      "file": "035_ekler_hindistan_cevizli_EKLER HİNDİSTAN CEVİZLİ.jpg",
+      "product_name": "EKLER HİNDİSTAN CEVİZLİ",
+      "image_url": "https://toptanpastacim.com/Resimler/fb1602a1-01bf-47d8-b4e6-a8a50f94d4f0.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00006/ekler-hindistan-cevizli/152-03"
+    },
+    {
+      "index": 36,
+      "file": "036_ekler_karamel_EKLER KARAMEL.jpg",
+      "product_name": "EKLER KARAMEL",
+      "image_url": "https://toptanpastacim.com/Resimler/2e9f2d92-feea-4217-b6d8-12b0876986f6.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00007/ekler-karamel/152-03"
+    },
+    {
+      "index": 37,
+      "file": "037_ekler_klasik_EKLER KLASİK.jpg",
+      "product_name": "EKLER KLASİK",
+      "image_url": "https://toptanpastacim.com/Resimler/a6f0cde5-6725-4df6-a2c4-7170718f63c7.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00010/ekler-klasik/152-03"
+    },
+    {
+      "index": 38,
+      "file": "038_ekler_klasik_beyaz_ic_EKLER KLASİK BEYAZ İÇ.jpg",
+      "product_name": "EKLER KLASİK BEYAZ İÇ",
+      "image_url": "https://toptanpastacim.com/Resimler/da3ddf7f-3e0f-4bbf-9775-acf7b2ae55e9.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00009/ekler-klasik-beyaz-ic/152-03"
+    },
+    {
+      "index": 39,
+      "file": "039_ekler_limon_EKLER LİMON.jpg",
+      "product_name": "EKLER LİMON",
+      "image_url": "https://toptanpastacim.com/Resimler/a35ed264-4053-4ff9-99c6-c409f0ade3a2.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00011/ekler-limon/152-03"
+    },
+    {
+      "index": 40,
+      "file": "040_ekler_meyveli_EKLER MEYVELİ.jpg",
+      "product_name": "EKLER MEYVELİ",
+      "image_url": "https://toptanpastacim.com/Resimler/7a0a2baa-dec7-4ee5-94af-b1983b878120.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00012/ekler-meyveli/152-03"
+    },
+    {
+      "index": 41,
+      "file": "041_ekler_muz_EKLER MUZ.jpg",
+      "product_name": "EKLER MUZ",
+      "image_url": "https://toptanpastacim.com/Resimler/1143aa77-320f-40d3-80a4-a2fa6b1683ab.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00013/ekler-muz/152-03"
+    },
+    {
+      "index": 42,
+      "file": "042_ekler_portakalli_EKLER PORTAKALLI.jpg",
+      "product_name": "EKLER PORTAKALLI",
+      "image_url": "https://toptanpastacim.com/Resimler/b554df68-e4f6-4172-87b1-bb73aa46e93c.JPG",
+      "source": "https://toptanpastacim.com/product/152-03-00001/ekler-portakalli/152-03"
+    },
+    {
+      "index": 43,
+      "file": "043_ekler_yer_fistikli_EKLER YER FISTIKLI.jpeg",
+      "product_name": "EKLER YER FISTIKLI",
+      "image_url": "https://toptanpastacim.com/Resimler/3443ea51-2380-4d60-ab78-dbca1def4113.jpeg",
+      "source": "https://toptanpastacim.com/product/152-03-00015/ekler-yer-fistikli/152-03"
+    },
+    {
+      "index": 44,
+      "file": "044_fistikli_no_0_FISTIKLI NO 0.jpg",
+      "product_name": "FISTIKLI NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/30c188ec-d307-4ea4-bff6-f73e1000f2ba.jpg",
+      "source": "https://toptanpastacim.com/product/152-01-00010/fistikli-no-0/152-01"
+    },
+    {
+      "index": 45,
+      "file": "045_fistikli_no_1_FISTIKLI NO 1.jpg",
+      "product_name": "FISTIKLI NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/06483bbe-cd9f-41f6-81b0-d8ecbbc71828.jpg",
+      "source": "https://toptanpastacim.com/product/152-01-00011/fistikli-no-1/152-01"
+    },
+    {
+      "index": 46,
+      "file": "046_fistikli_no_2_FISTIKLI NO 2.jpg",
+      "product_name": "FISTIKLI NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/c7c3d9f0-35a2-463b-bcc3-7aaf955b0dd4.jpg",
+      "source": "https://toptanpastacim.com/product/152-01-00012/fistikli-no-2/152-01"
+    },
+    {
+      "index": 47,
+      "file": "047_frambuaz_marki_FRAMBUAZ MARKİ.jpg",
+      "product_name": "FRAMBUAZ MARKİ",
+      "image_url": "https://toptanpastacim.com/Resimler/07c2a85e-4eed-4b3f-92d9-b521b9096c76.jpg",
+      "source": "https://toptanpastacim.com/product/152-05-00021/frambuaz-marki/152-05"
+    },
+    {
+      "index": 48,
+      "file": "048_ganaj_marki_GANAJ MARKİ.jpg",
+      "product_name": "GANAJ MARKİ",
+      "image_url": "https://toptanpastacim.com/Resimler/a08fe7fa-6211-4a45-9f8a-d15f782804ef.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00024/ganaj-marki/152-05"
+    },
+    {
+      "index": 49,
+      "file": "049_incirli_muhallebi_İNCİRLİ MUHALLEBİ.png",
+      "product_name": "İNCİRLİ MUHALLEBİ",
+      "image_url": "https://toptanpastacim.com/Resimler/3f880394-6cd1-40ba-8e97-9ddbac0206dc.png",
+      "source": "https://toptanpastacim.com/product/152-04-00013/incirli-muhallebi/152-04"
+    },
+    {
+      "index": 50,
+      "file": "050_islak_kek_ISLAK KEK.png",
+      "product_name": "ISLAK KEK",
+      "image_url": "https://toptanpastacim.com/Resimler/6440b010-a2de-4e14-b0bc-eb382bdf4576.png",
+      "source": "https://toptanpastacim.com/product/152-06-00010/islak-kek/152-06"
+    },
+    {
+      "index": 51,
+      "file": "051_karamel_marki_KARAMEL MARKİ.jpg",
+      "product_name": "KARAMEL MARKİ",
+      "image_url": "https://toptanpastacim.com/Resimler/8fc63d2c-59f2-4486-a7da-935547dc6251.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00023/karamel-marki/152-05"
+    },
+    {
+      "index": 52,
+      "file": "052_karaorman_no_0_KARAORMAN NO 0.jpg",
+      "product_name": "KARAORMAN NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/466a012e-b381-46ea-bc65-6b1bd0c6e983.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00016/karaorman-no-0/152-01"
+    },
+    {
+      "index": 53,
+      "file": "053_karaorman_no_1_KARAORMAN NO 1.jpg",
+      "product_name": "KARAORMAN NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/c0697243-636a-4b88-80ff-7034c6a0a1a8.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00017/karaorman-no-1/152-01"
+    },
+    {
+      "index": 54,
+      "file": "054_karaorman_no_2_KARAORMAN NO 2.jpg",
+      "product_name": "KARAORMAN NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/4f8c82c6-c292-415c-a9a0-6a5eb3328d7b.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00018/karaorman-no-2/152-01"
+    },
+    {
+      "index": 55,
+      "file": "055_kazandibi_KAZANDİBİ.png",
+      "product_name": "KAZANDİBİ",
+      "image_url": "https://toptanpastacim.com/Resimler/2f752b08-2f48-4fed-b1d8-7fc454a170de.png",
+      "source": "https://toptanpastacim.com/product/152-04-00016/kazandibi/152-04"
+    },
+    {
+      "index": 56,
+      "file": "056_keskul_KEŞKÜL.png",
+      "product_name": "KEŞKÜL",
+      "image_url": "https://toptanpastacim.com/Resimler/a9f3442c-5553-4ae7-a539-65989ea42b3b.png",
+      "source": "https://toptanpastacim.com/product/152-04-00017/keskul/152-04"
+    },
+    {
+      "index": 57,
+      "file": "057_krem_sokola_KREM ŞOKOLA.png",
+      "product_name": "KREM ŞOKOLA",
+      "image_url": "https://toptanpastacim.com/Resimler/32c7dd78-01e5-475f-a8f3-dc24bcbf2402.png",
+      "source": "https://toptanpastacim.com/product/152-04-00014/krem-sokola/152-04"
+    },
+    {
+      "index": 58,
+      "file": "058_magnolya_cilek_MAGNOLYA ÇİLEK.png",
+      "product_name": "MAGNOLYA ÇİLEK",
+      "image_url": "https://toptanpastacim.com/Resimler/ffe40974-8ad6-404d-9807-7dd1b6f1bf2b.png",
+      "source": "https://toptanpastacim.com/product/152-04-00001/magnolya-cilek/152-04"
+    },
+    {
+      "index": 59,
+      "file": "059_magnolya_muz_MAGNOLYA MUZ.png",
+      "product_name": "MAGNOLYA MUZ",
+      "image_url": "https://toptanpastacim.com/Resimler/5b44b2a0-0a20-4094-91ec-3b4cf9abd12b.png",
+      "source": "https://toptanpastacim.com/product/152-04-00002/magnolya-muz/152-04"
+    },
+    {
+      "index": 60,
+      "file": "060_magnolya_oreo_MAGNOLYA OREO.png",
+      "product_name": "MAGNOLYA OREO",
+      "image_url": "https://toptanpastacim.com/Resimler/7347e36a-337b-4f88-a0d4-ee301f721caf.png",
+      "source": "https://toptanpastacim.com/product/152-04-00003/magnolya-oreo/152-04"
+    },
+    {
+      "index": 61,
+      "file": "061_meyveli_no_0_MEYVELİ NO 0.jpg",
+      "product_name": "MEYVELİ NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/6efa70b7-beb4-48b7-8eb7-e1e979c1a837.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00022/meyveli-no-0/152-01"
+    },
+    {
+      "index": 62,
+      "file": "062_meyveli_no_1_MEYVELİ NO 1.jpg",
+      "product_name": "MEYVELİ NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/7281d67b-869a-4cde-9368-f2506454c50d.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00023/meyveli-no-1/152-01"
+    },
+    {
+      "index": 63,
+      "file": "063_meyveli_no_2_MEYVELİ NO 2.jpg",
+      "product_name": "MEYVELİ NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/ae5f34b2-63e3-4a81-8450-4450217ad2ab.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00024/meyveli-no-2/152-01"
+    },
+    {
+      "index": 64,
+      "file": "064_mini_ibiza_MİNİ İBİZA.jpg",
+      "product_name": "MİNİ İBİZA",
+      "image_url": "https://toptanpastacim.com/Resimler/8bca2f80-09c9-453e-8fdd-a69767d21915.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00005/mini-ibiza/152-05"
+    },
+    {
+      "index": 65,
+      "file": "065_mois_MOİS.jpg",
+      "product_name": "MOİS",
+      "image_url": "https://toptanpastacim.com/Resimler/9fd51b41-3adb-4f8d-8062-5c14d83327e3.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00008/mois/152-02"
+    },
+    {
+      "index": 66,
+      "file": "066_mois_no_0_MOİS NO 0.jpg",
+      "product_name": "MOİS NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/361463d4-b585-454a-b6ed-db38f242600e.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00025/mois-no-0/152-01"
+    },
+    {
+      "index": 67,
+      "file": "067_mois_no_1_MOİS NO 1.jpg",
+      "product_name": "MOİS NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/0f22eb10-f2b2-49ca-b8bc-972326b2c2d4.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00026/mois-no-1/152-01"
+    },
+    {
+      "index": 68,
+      "file": "068_mois_no_2_MOİS NO 2.jpg",
+      "product_name": "MOİS NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/4654868f-4ea1-44e4-9c74-427e827ee007.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00027/mois-no-2/152-01"
+    },
+    {
+      "index": 69,
+      "file": "069_mono_cikolata_MONO ÇİKOLATA.jpg",
+      "product_name": "MONO ÇİKOLATA",
+      "image_url": "https://toptanpastacim.com/Resimler/5051702c-8aac-44d2-9c3c-5e94451f3c3e.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00009/mono-cikolata/152-02"
+    },
+    {
+      "index": 70,
+      "file": "070_mono_dubai_MONO DUBAİ.jpeg",
+      "product_name": "MONO DUBAİ",
+      "image_url": "https://toptanpastacim.com/Resimler/f22e9cb6-0e4a-4be5-be08-b731fe181ae0.jpeg",
+      "source": "https://toptanpastacim.com/product/152-02-00027/mono-dubai/152-02"
+    },
+    {
+      "index": 71,
+      "file": "071_mono_pembe_MONO PEMBE.jpg",
+      "product_name": "MONO PEMBE",
+      "image_url": "https://toptanpastacim.com/Resimler/0fb9ad2b-f55d-4522-aa64-7c36801d6260.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00016/mono-pembe/152-02"
+    },
+    {
+      "index": 72,
+      "file": "072_muz_cikolata_no_0_MUZ ÇİKOLATA NO 0.jpg",
+      "product_name": "MUZ ÇİKOLATA NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/9926fb07-086f-4a59-aa6f-3f1826f41461.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00065/muz-cikolata-no-0/152-01"
+    },
+    {
+      "index": 73,
+      "file": "073_muz_cikolata_no_1_MUZ ÇİKOLATA NO 1.jpg",
+      "product_name": "MUZ ÇİKOLATA NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/2962b49f-331c-46a8-8402-856eced6efcc.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00066/muz-cikolata-no-1/152-01"
+    },
+    {
+      "index": 74,
+      "file": "074_muz_cikolata_no_2_MUZ ÇİKOLATA NO 2.jpg",
+      "product_name": "MUZ ÇİKOLATA NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/dd47cc38-0e51-43ad-9007-ec45a3d8d7cf.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00067/muz-cikolata-no-2/152-01"
+    },
+    {
+      "index": 75,
+      "file": "075_newyork_no_0_NEWYORK NO 0.jpg",
+      "product_name": "NEWYORK NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/64117c04-9350-49f1-b17c-21738a45869e.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00031/newyork-no-0/152-01"
+    },
+    {
+      "index": 76,
+      "file": "076_newyork_no_1_NEWYORK NO 1.jpg",
+      "product_name": "NEWYORK NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/b0c0d240-646b-45d5-90fd-8574efc731db.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00032/newyork-no-1/152-01"
+    },
+    {
+      "index": 77,
+      "file": "077_newyork_no_2_NEWYORK NO 2.jpg",
+      "product_name": "NEWYORK NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/01f14a43-b9d4-4f37-ba25-6233c953ca75.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00033/newyork-no-2/152-01"
+    },
+    {
+      "index": 78,
+      "file": "078_portakalli_bitter_marki_PORTAKALLI BİTTER MARKİ.jpg",
+      "product_name": "PORTAKALLI BİTTER MARKİ",
+      "image_url": "https://toptanpastacim.com/Resimler/a32aba06-4bfd-4fa4-b71e-f6581121ecc8.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00016/portakalli-bitter-marki/152-05"
+    },
+    {
+      "index": 79,
+      "file": "079_profiterol_PROFİTEROL.png",
+      "product_name": "PROFİTEROL",
+      "image_url": "https://toptanpastacim.com/Resimler/5d89c1e9-c974-4589-bfc6-87cb0f0d7490.png",
+      "source": "https://toptanpastacim.com/product/152-04-00004/profiterol/152-04"
+    },
+    {
+      "index": 80,
+      "file": "080_profiterol_500_gr._PROFİTEROL 500 GR..jpg",
+      "product_name": "PROFİTEROL 500 GR.",
+      "image_url": "https://toptanpastacim.com/Resimler/74d57e75-1434-414f-bd6f-771f48a64b2f.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00026/profiterol-500-gr-/152-04"
+    },
+    {
+      "index": 81,
+      "file": "081_profiterollu_no_0_PROFİTEROLLÜ NO 0.jpg",
+      "product_name": "PROFİTEROLLÜ NO 0",
+      "image_url": "https://toptanpastacim.com/Resimler/1ff1249b-e0cc-4a72-8d54-45903aa606bb.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00034/profiterollu-no-0/152-01"
+    },
+    {
+      "index": 82,
+      "file": "082_profiterollu_no_1_PROFİTEROLLÜ NO 1.jpg",
+      "product_name": "PROFİTEROLLÜ NO 1",
+      "image_url": "https://toptanpastacim.com/Resimler/e074228c-2b0d-4289-bbd7-62e6672849af.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00035/profiterollu-no-1/152-01"
+    },
+    {
+      "index": 83,
+      "file": "083_profiterollu_no_2_PROFİTEROLLÜ NO 2.jpg",
+      "product_name": "PROFİTEROLLÜ NO 2",
+      "image_url": "https://toptanpastacim.com/Resimler/c47c00f2-500b-486c-b503-c507d84c7318.JPG",
+      "source": "https://toptanpastacim.com/product/152-01-00036/profiterollu-no-2/152-01"
+    },
+    {
+      "index": 84,
+      "file": "084_red_velved_RED VELVED.jpg",
+      "product_name": "RED VELVED",
+      "image_url": "https://toptanpastacim.com/Resimler/f22ca023-a123-4a61-a785-61df99e8d55c.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00011/red-velved/152-02"
+    },
+    {
+      "index": 85,
+      "file": "085_rulo_muz_RULO MUZ.jpg",
+      "product_name": "RULO MUZ",
+      "image_url": "https://toptanpastacim.com/Resimler/54ef4028-dc03-4a30-99c6-35760ca1ddf4.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00007/rulo-muz/152-05"
+    },
+    {
+      "index": 86,
+      "file": "086_show_fistik_SHOW FISTIK.jpg",
+      "product_name": "SHOW FISTIK",
+      "image_url": "https://toptanpastacim.com/Resimler/f0bcc17f-fd82-483d-86a4-90f4fc953bfd.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00013/show-fistik/152-02"
+    },
+    {
+      "index": 87,
+      "file": "087_show_meyve_SHOW MEYVE.jpg",
+      "product_name": "SHOW MEYVE",
+      "image_url": "https://toptanpastacim.com/Resimler/9e066031-2188-4da5-b889-0845e414140b.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00019/show-meyve/152-02"
+    },
+    {
+      "index": 88,
+      "file": "088_sutlac_SÜTLAÇ.png",
+      "product_name": "SÜTLAÇ",
+      "image_url": "https://toptanpastacim.com/Resimler/3bf81035-a17e-4c24-86f2-7009426f432a.png",
+      "source": "https://toptanpastacim.com/product/152-04-00015/sutlac/152-04"
+    },
+    {
+      "index": 89,
+      "file": "089_tartolet_cilekli_TARTOLET ÇİLEKLİ.jpg",
+      "product_name": "TARTOLET ÇİLEKLİ",
+      "image_url": "https://toptanpastacim.com/Resimler/f0fa343f-b373-42f5-8f4d-5667222814de.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00008/tartolet-cilekli/152-05"
+    },
+    {
+      "index": 90,
+      "file": "090_tartolet_karisik_TARTOLET KARIŞIK.jpg",
+      "product_name": "TARTOLET KARIŞIK",
+      "image_url": "https://toptanpastacim.com/Resimler/495a5341-b95b-44a9-be13-3ded3f803ed6.JPG",
+      "source": "https://toptanpastacim.com/product/152-05-00009/tartolet-karisik/152-05"
+    },
+    {
+      "index": 91,
+      "file": "091_tavuk_gogsu_TAVUK GÖĞSÜ.png",
+      "product_name": "TAVUK GÖĞSÜ",
+      "image_url": "https://toptanpastacim.com/Resimler/b5d20826-d051-4587-8b46-f669fcafa5ff.png",
+      "source": "https://toptanpastacim.com/product/152-04-00012/tavuk-gogsu/152-04"
+    },
+    {
+      "index": 92,
+      "file": "092_tiramisu_TİRAMİSU.png",
+      "product_name": "TİRAMİSU",
+      "image_url": "https://toptanpastacim.com/Resimler/837efa53-bdae-4675-ad8d-f31d982ae065.png",
+      "source": "https://toptanpastacim.com/product/152-04-00020/tiramisu/152-04"
+    },
+    {
+      "index": 93,
+      "file": "093_trilece_frambuaz_TRİLEÇE FRAMBUAZ.png",
+      "product_name": "TRİLEÇE FRAMBUAZ",
+      "image_url": "https://toptanpastacim.com/Resimler/a51c275d-5f05-43f2-bd38-96d9d959d68b.png",
+      "source": "https://toptanpastacim.com/product/152-06-00001/trilece-frambuaz/152-06"
+    },
+    {
+      "index": 94,
+      "file": "094_trilece_karamel_TRİLEÇE KARAMEL.png",
+      "product_name": "TRİLEÇE KARAMEL",
+      "image_url": "https://toptanpastacim.com/Resimler/5a085664-3974-41b9-a865-030cfa133ee7.png",
+      "source": "https://toptanpastacim.com/product/152-06-00002/trilece-karamel/152-06"
+    },
+    {
+      "index": 95,
+      "file": "095_volkanik_VOLKANİK.jpg",
+      "product_name": "VOLKANİK",
+      "image_url": "https://toptanpastacim.com/Resimler/2458142c-306b-4c73-86e9-e4f096023fba.jpg",
+      "source": "https://toptanpastacim.com/product/152-02-00015/volkanik/152-02"
+    }
+  ],
+  "failures": []
+}

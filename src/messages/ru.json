@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "Цифровое меню Büyükçekmece Güzelce"
+  },
+  "header": {
+    "overline": "Эстетичное и понятное меню",
+    "title": "Меню Büyükçekmece Güzelce",
+    "subtitle": "Вафли, эклеры и мини-десерты в удобном мобильном формате с быстрым контактом через WhatsApp."
+  },
+  "actions": {
+    "whatsapp": {
+      "contact": "Написать в WhatsApp",
+      "orderWithProduct": "Уточнить этот товар",
+      "openWhatsapp": "Открыть WhatsApp",
+      "missingNumber": "Номер WhatsApp не настроен"
+    }
+  },
+  "menu": {
+    "all": "Все категории",
+    "empty": "В меню пока нет продуктов. Обновите список товаров и изображения в источнике данных.",
+    "header": "Меню",
+    "noDescription": "Описание не добавлено"
+  },
+  "states": {
+    "emptyTitle": "Меню еще не настроено",
+    "soldOut": "Нет в наличии",
+    "priceUnknown": "Уточните цену",
+    "missingPhone": "WhatsApp не настроен"
+  }
+}
