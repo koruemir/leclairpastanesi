@@ -1,0 +1,218 @@
+import type { Product } from "@/lib/types";
+export { categories } from "./categories";
+
+const seedProducts: Omit<Product, "sortOrder">[] = [
+  {
+    id: "p01",
+    slug: "frambuazli-entremet",
+    name: "Frambuazlı Entremet",
+    subtitle: "Zarif, hafif, unutulmaz.",
+    description:
+      "Frambuazın canlı tadı, ipeksi mousse ve incecik bisküvi tabanıyla buluşuyor. Küçük kutlamalara çok yakışan, meyveli bir mutluluk.",
+    category: "pastalar",
+    image: "/images/raspberry.webp",
+    imageAlt: "Frambuazlarla süslenmiş pembe mousse pasta",
+    badge: "Vitrinin yıldızı",
+    featured: true,
+    variants: [
+      { id: "4-kisilik", label: "4 kişilik", price: 68000 },
+      { id: "6-kisilik", label: "6 kişilik", price: 94000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p02",
+    slug: "fistikli-baklava",
+    name: "Fıstıklı Baklava",
+    subtitle: "Kat kat gelenek, bol fıstık.",
+    description:
+      "Altın rengi çıtır katmanların arasında bol fıstık. Geleneksel baklava keyfini sofranıza taşıyan, paylaşmalık bir klasik.",
+    category: "baklavalar",
+    image: "/images/baklava.webp",
+    imageAlt: "Antep fıstıklı, altın renkli baklava dilimleri",
+    featured: true,
+    variants: [
+      { id: "500-g", label: "500 g kutu", price: 42000 },
+      { id: "1-kg", label: "1 kg kutu", price: 80000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p03",
+    slug: "cikolatali-ekler",
+    name: "Çikolatalı Ekler",
+    subtitle: "Bir Fransız klasiği.",
+    description:
+      "Hafif hamur, yumuşak vanilyalı krema ve parlak çikolata. Kahvenizin yanına yakışan, ilk lokmadan tanıdık bir lezzet.",
+    category: "tatlilar",
+    image: "/images/eclair.webp",
+    imageAlt: "Üzeri çikolata kaplı ve fıstık serpilmiş ekler",
+    badge: "Küçük bir mutluluk",
+    featured: true,
+    variants: [
+      { id: "adet", label: "1 adet", price: 9500 },
+      { id: "6li-kutu", label: "6’lı kutu", price: 54000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p04",
+    slug: "meyveli-tart",
+    name: "Meyveli Tart",
+    subtitle: "Mevsimin en tatlı hali.",
+    description:
+      "Kıtır tart tabanı üzerinde vanilyalı krema, çilek ve frambuaz. Meyvenin ferahlığını sevenler için rengârenk bir tatlı molası.",
+    category: "tatlilar",
+    image: "/images/tart.webp",
+    imageAlt: "Çilek ve frambuazla süslenmiş küçük meyveli tart",
+    featured: true,
+    variants: [{ id: "adet", label: "1 adet", price: 18000 }],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p05",
+    slug: "cikolatali-pasta",
+    name: "Çikolatalı Pasta",
+    subtitle: "Çikolatanın en zarif hali.",
+    description:
+      "Yoğun çikolata, yumuşacık pasta katları ve kırmızı meyveler. Çikolata sevenlerin kutlamalarına eşlik eden, gösterişli ve dolu dolu bir pasta.",
+    category: "pastalar",
+    image: "/images/hero.webp",
+    imageAlt: "Kırmızı meyveler ve çikolata parçalarıyla süslenmiş çikolatalı pasta",
+    featured: true,
+    variants: [
+      { id: "4-kisilik", label: "4 kişilik", price: 72000 },
+      { id: "6-kisilik", label: "6 kişilik", price: 98000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p06",
+    slug: "renkli-makaron",
+    name: "Renkli Makaron",
+    subtitle: "Bir kutu dolusu renk.",
+    description:
+      "İncecik çıtır kabukların arasında yumuşak dolgu. Fıstık, frambuaz ve vanilya renkleriyle çay saatine zarif bir dokunuş.",
+    category: "kurabiyeler",
+    image: "/images/macaron.webp",
+    imageAlt: "Yeşil, pembe ve krem renkli Fransız makaronları",
+    featured: true,
+    variants: [
+      { id: "6li-kutu", label: "6’lı kutu", price: 29000 },
+      { id: "12li-kutu", label: "12’li kutu", price: 55000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p07",
+    slug: "profiterol",
+    name: "Profiterol",
+    subtitle: "Bol çikolatalı bir mola.",
+    description:
+      "İçi krema dolu hafif hamur topları, cömert bir çikolata sosuyla tamamlanıyor. Kaşık kaşık keyif veren bir pastane klasiği.",
+    category: "tatlilar",
+    image: "/images/profiterole.webp",
+    imageAlt: "Krem renkli kasede çikolata soslu profiterol",
+    featured: true,
+    variants: [{ id: "porsiyon", label: "1 porsiyon", price: 19000 }],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p08",
+    slug: "tereyagli-kurabiye",
+    name: "Tereyağlı Kurabiye",
+    subtitle: "Çayın en güzel eşlikçisi.",
+    description:
+      "Altın rengi, kıyır kıyır tereyağlı kurabiyeler. Uzun sohbetlere ve çay molalarına eşlik etmesi için bir kutu dolusu lezzet.",
+    category: "kurabiyeler",
+    image: "/images/cookies.webp",
+    imageAlt: "Tabakta altın renkli tereyağlı kurabiyeler",
+    featured: true,
+    variants: [
+      { id: "250-g", label: "250 g kutu", price: 18000 },
+      { id: "500-g", label: "500 g kutu", price: 34000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p09",
+    slug: "cilekli-pasta",
+    name: "Çilekli Pasta",
+    subtitle: "Bir dilim yaz neşesi.",
+    description:
+      "Vanilyalı krema, hafif pandispanya ve çileklerin ferah birlikteliği. Sevdiklerinizle paylaştığınız anlara biraz daha renk katın.",
+    category: "pastalar",
+    image: "/images/strawberry.webp",
+    imageAlt: "Taze çileklerle süslenmiş vanilyalı kremalı pasta",
+    variants: [
+      { id: "4-kisilik", label: "4 kişilik", price: 64000 },
+      { id: "6-kisilik", label: "6 kişilik", price: 90000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p10",
+    slug: "soguk-baklava",
+    name: "Soğuk Baklava",
+    subtitle: "Serin, sütlü, çikolatalı.",
+    description:
+      "Sütlü şerbetin hafifliği, çıtır baklava katları ve ince kakao dokunuşu. Klasik baklavaya serin bir yorum.",
+    category: "baklavalar",
+    image: "/images/cold-baklava.webp",
+    imageAlt: "Üzerine kakao serpilmiş sütlü soğuk baklava",
+    variants: [
+      { id: "500-g", label: "500 g kutu", price: 39000 },
+      { id: "1-kg", label: "1 kg kutu", price: 75000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p11",
+    slug: "fistikli-sobiyet",
+    name: "Fıstıklı Şöbiyet",
+    subtitle: "İncecik katlarda saklı keyif.",
+    description:
+      "Üçgen şekilli incecik yufkaların arasında fıstık ve yumuşak dolgu. Geleneksel tatlıları sevenler için özel bir seçenek.",
+    category: "baklavalar",
+    image: "/images/sobiyet.webp",
+    imageAlt: "Fıstıkla süslenmiş üçgen şöbiyet tatlıları",
+    variants: [
+      { id: "500-g", label: "500 g kutu", price: 45000 },
+      { id: "1-kg", label: "1 kg kutu", price: 86000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+  {
+    id: "p12",
+    slug: "cikolata-parcali-kurabiye",
+    name: "Çikolatalı Kurabiye",
+    subtitle: "İçi yumuşacık, bol çikolatalı.",
+    description:
+      "İri çikolata parçaları ve altın renkli kenarlar. Kahvenizin yanına ya da küçük bir hediye kutusuna çok yakışır.",
+    category: "kurabiyeler",
+    image: "/images/chocolate-cookies.webp",
+    imageAlt: "İri çikolata parçalı ev yapımı kurabiyeler",
+    variants: [
+      { id: "4lu-kutu", label: "4’lü kutu", price: 22000 },
+      { id: "8li-kutu", label: "8’li kutu", price: 42000 },
+    ],
+    visible: true,
+    isDemo: true,
+  },
+];
+
+export const products: Product[] = seedProducts.map((product, sortOrder) => ({
+  ...product,
+  sortOrder,
+}));

@@ -1,0 +1,67 @@
+{
+  "generator": "Built-in image_gen, no CLI fallback",
+  "purpose": "AI-generated placeholder product photography; not verified photographs of this business's products.",
+  "optimization": "WebP quality 83; hero up to 1600px, catalog up to 900px.",
+  "assets": [
+    {
+      "file": "public/images/hero.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-a024ce69-497b-4ab1-ba5a-8b9fb30387c4.png",
+      "prompt": "Use case: product-mockup. Create one photorealistic landscape luxury patisserie hero photograph, 1536x1024. A handcrafted glossy dark chocolate round entremet cake topped with fresh raspberries, strawberries, delicate chocolate shards and crushed green pistachios, on a low antique brass cake stand. The cake occupies the RIGHT two-thirds of the photograph. Background is warmly sunlit softly blurred European pastry shop in walnut and cream, beige linen and ivory marble table, subtle shadows, editorial food photography, natural imperfect details, very appetizing, dark brown cocoa and cream palette. Left third soft darker negative space, no extra cakes. No people, absolutely no text, no lettering, no logo, no borders, no watermark. This is a sample product photo for a Turkish patisserie website."
+    },
+    {
+      "file": "public/images/raspberry.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-a6ee1133-cfcc-461b-a043-e4cafb44580a.png",
+      "prompt": "Use case: product-mockup. Asset type: sample product photo for a luxury Turkish patisserie website. Create one square photorealistic editorial food photograph. Subject: A single elegant round raspberry mousse entremet cake topped with fresh raspberries and small dark chocolate shards, pale pink mousse sides, thin golden biscuit base, ivory ceramic plate. Composition: close three-quarter angle, entire dessert centered with breathing room, subject fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, a corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic food textures, premium artisan patisserie. Consistent palette of cream, cocoa and subtle gold. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/baklava.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-1516ba64-0b22-42f1-a100-ebe5e1fca324.png",
+      "prompt": "Use case: product-mockup. Asset type: sample product photo for a luxury Turkish patisserie website. Create one square photorealistic editorial food photograph. Subject: A small serving of authentic Turkish pistachio baklava, crisp golden flaky layers with vibrant finely ground green pistachio filling, beautifully arranged on a small antique brass plate. Composition: close three-quarter angle, entire dessert centered with breathing room, subject fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, a corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic food textures, premium artisan patisserie. Consistent palette of cream, cocoa and subtle gold. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/eclair.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-0c7cc17d-206a-4aa2-a639-213e7278a0cd.png",
+      "prompt": "Use case: product-mockup. Asset type: sample product photo for a luxury Turkish patisserie website. Create one square photorealistic editorial food photograph. Subject: Three elegant French chocolate eclairs filled with vanilla cream, glossy dark chocolate icing and a light garnish of crushed green pistachios, on an ivory ceramic plate. Composition: close three-quarter angle, entire dessert centered with breathing room, subject fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, a corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic food textures, premium artisan patisserie. Consistent palette of cream, cocoa and subtle gold. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/tart.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-1c099170-5de3-444e-97c3-70a3d7633d3c.png",
+      "prompt": "Use case: product-mockup. Asset type: sample product photo for a luxury Turkish patisserie website. Create one square photorealistic editorial food photograph. Subject: A small beautiful strawberry and raspberry tart, golden crisp pastry shell, vanilla cream, fresh glossy red berries, on an ivory plate. Composition: close three-quarter angle, entire dessert centered with breathing room, subject fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, a corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic food textures, premium artisan patisserie. Consistent palette of cream, cocoa and subtle gold. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/macaron.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-74eb620e-f043-4abc-9e81-2b021542c151.png",
+      "prompt": "Use case: product-mockup. Asset type: sample product photo for a luxury Turkish patisserie website. Create one square photorealistic editorial food photograph. Subject: An elegant small assortment of French macarons, muted pistachio green, raspberry pink and vanilla cream, artfully piled on an ivory ceramic plate. Composition: close three-quarter angle, entire dessert centered with breathing room, subject fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, a corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic food textures, premium artisan patisserie. Consistent palette of cream, cocoa and subtle gold. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/cookies.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-5be0db57-334a-40ea-8af6-e4b933af981c.png",
+      "prompt": "Use case: product-mockup. Asset type: sample product photo for a luxury Turkish patisserie website. Create one square photorealistic editorial food photograph. Subject: A small heap of buttery homemade sable cookies, golden vanilla biscuits and chocolate chip cookies with visible dark chocolate chunks, on an ivory ceramic plate. Composition: close three-quarter angle, entire dessert centered with breathing room, subject fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, a corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic food textures, premium artisan patisserie. Consistent palette of cream, cocoa and subtle gold. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/profiterole.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-325f5a8a-b758-462d-8d1c-e0ffee0e40c7.png",
+      "prompt": "Use case: product-mockup. Asset type: sample product photo for a luxury Turkish patisserie website. Create one square photorealistic editorial food photograph. Subject: A generous small ivory bowl of profiteroles, delicate cream-filled choux pastry coated in glossy dark chocolate ganache, a few toasted pistachio crumbs. Composition: close three-quarter angle, entire dessert centered with breathing room, subject fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, a corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic food textures, premium artisan patisserie. Consistent palette of cream, cocoa and subtle gold. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/strawberry.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-1bf372a1-5f70-45dc-9b20-010467ce9c7e.png",
+      "prompt": "Use case: product-mockup. Create one square photorealistic editorial luxury patisserie product photograph. Subject: A small elegant vanilla layer cake with white whipped cream frosting, fresh bright red strawberries generously arranged on top, subtle visible vanilla sponge layers, on an ivory plate. Composition: close three-quarter angle, complete subject centered with breathing room, fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic texture. Matching catalog of cream, cocoa, subtle gold, artisan Turkish bakery. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/cold-baklava.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-b3c04391-ab0d-4f7b-9d79-5b09a96f71f0.png",
+      "prompt": "Use case: product-mockup. Create one square photorealistic editorial luxury patisserie product photograph. Subject: Authentic Turkish cold milk baklava, four neatly arranged squares with thin golden pastry layers and pistachio filling, tops fully dusted with fine cocoa powder and dark chocolate shavings, on an ivory ceramic plate. Composition: close three-quarter angle, complete subject centered with breathing room, fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic texture. Matching catalog of cream, cocoa, subtle gold, artisan Turkish bakery. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/sobiyet.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-b92714a0-51fe-432b-bca8-eb56ef45a737.png",
+      "prompt": "Use case: product-mockup. Create one square photorealistic editorial luxury patisserie product photograph. Subject: Authentic Turkish pistachio sobiyet pastries: three distinct triangle-shaped folded golden filo pastries, abundant vivid green crushed pistachios on top and soft filling visible at the edges, on an antique brass plate. Composition: close three-quarter angle, complete subject centered with breathing room, fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic texture. Matching catalog of cream, cocoa, subtle gold, artisan Turkish bakery. No people, no text, no logos, no border, no collage, no watermark."
+    },
+    {
+      "file": "public/images/chocolate-cookies.webp",
+      "source": "/Users/ek/.codex/generated_images/01a0c550-8057-7041-a7ed-a3ee67e5b489/exec-cf0e0593-75e2-4dc6-8d67-c0825ef60338.png",
+      "prompt": "Use case: product-mockup. Create one square photorealistic editorial luxury patisserie product photograph. Subject: Four rustic thick chocolate chunk cookies with golden crinkled edges and generous large melted dark chocolate pieces, one cookie leaning on another, on an ivory ceramic plate. Composition: close three-quarter angle, complete subject centered with breathing room, fills 70 percent of frame. Scene: ivory travertine countertop, softly blurred warm beige and walnut pastry shop background, corner of natural cream linen. Lighting: soft warm window daylight, appetizing realistic texture. Matching catalog of cream, cocoa, subtle gold, artisan Turkish bakery. No people, no text, no logos, no border, no collage, no watermark."
+    }
+  ]
+}
