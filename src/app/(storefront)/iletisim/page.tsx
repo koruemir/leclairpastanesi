@@ -6,11 +6,13 @@ import { BakeryStructuredData } from "@/components/structured-data";
 import { business } from "@/lib/business";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata(
-  "İletişim ve konum",
-  "Lecalir Pastanesi İstanbul Güzelce, Büyükçekmece’de. Mağazanın konumuna ulaşın; paket servis veya mağazadan teslim alma seçeneklerini keşfedin.",
-  "/iletisim",
-);
+export function generateMetadata() {
+  return pageMetadata(
+    "İletişim ve konum",
+    "Lecalir Pastanesi İstanbul Güzelce, Büyükçekmece’de. Mağazanın konumuna ulaşın; paket servis veya mağazadan teslim alma seçeneklerini keşfedin.",
+    "/iletisim",
+  );
+}
 
 export default function ContactPage() {
   return (

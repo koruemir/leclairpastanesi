@@ -11,7 +11,9 @@ export function money(kurus: number): string {
   }).format(kurus / 100);
 }
 
-export function sanitizeCart(value: unknown, catalog: Product[]): CartLine[] {
+// Storage can arrive from a tab with a newer catalog. Validate its shape first,
+// then check availability only once a current catalog has been obtained.
+export function sanitizeStoredCart(value: unknown): CartLine[] {
   if (!Array.isArray(value)) return [];
   const result: CartLine[] = [];
   for (const entry of value.slice(0, 200)) {
@@ -19,13 +21,15 @@ export function sanitizeCart(value: unknown, catalog: Product[]): CartLine[] {
     const { productId, variantId, quantity } = entry;
     if (
       typeof productId !== "string" ||
+      !productId ||
+      productId.length > 150 ||
       typeof variantId !== "string" ||
+      !variantId ||
+      variantId.length > 150 ||
       !Number.isInteger(quantity) ||
       quantity < 1
     )
       continue;
-    const product = catalog.find((item) => item.id === productId);
-    if (!product?.variants.some((variant) => variant.id === variantId)) continue;
     const existing = result.find(
       (line) => line.productId === productId && line.variantId === variantId,
     );
@@ -33,6 +37,15 @@ export function sanitizeCart(value: unknown, catalog: Product[]): CartLine[] {
     else result.push({ productId, variantId, quantity: Math.min(MAX_QUANTITY, quantity) });
   }
   return result;
+}
+
+export function sanitizeCart(value: unknown, catalog: Product[]): CartLine[] {
+  return sanitizeStoredCart(value).filter((line) =>
+    catalog.some(
+      (product) => product.visible && product.id === line.productId &&
+        product.variants.some((variant) => variant.id === line.variantId),
+    ),
+  );
 }
 
 export function resolveCart(lines: CartLine[], catalog: Product[]): ResolvedCartLine[] {

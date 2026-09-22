@@ -78,9 +78,14 @@ test("broken persisted cart recovers without breaking the catalog", async ({ pag
 test("menu and product HTML is crawlable, demo has noindex, invalid product returns 404", async ({
   request,
 }) => {
-  const menu = await request.get("/menu");
+  const menu = await request.get("/menu", {
+    headers: { "user-agent": "Mozilla/5.0 Chrome/146.0.0.0 Safari/537.36" },
+  });
   expect(menu.status()).toBe(200);
   const html = await menu.text();
+  const head = html.match(/<head>([\s\S]*?)<\/head>/)?.[1] ?? "";
+  expect(head).toContain('name="description"');
+  expect(head).toContain('name="robots" content="noindex, follow"');
   expect(html).toContain('name="robots" content="noindex, follow"');
   expect(html).toContain("Frambuazlı Entremet");
   expect(html).not.toContain('"@type":"Offer"');
@@ -130,6 +135,12 @@ test("all requested breakpoints fit without page overflow", async ({ page }, tes
         viewport: window.innerWidth,
       }));
       expect(dims.content, `${path} at ${width}px`).toBeLessThanOrEqual(dims.viewport);
+      if ((width === 390 || width === 1440) && (path === "/" || path === "/menu")) {
+        await page.screenshot({
+          path: `reports/modern-${path === "/" ? "home" : "menu"}-${width}.png`,
+          fullPage: false,
+        });
+      }
     }
   }
 });

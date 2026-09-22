@@ -1,9 +1,13 @@
 import "server-only";
+import { cache } from "react";
 import { categories } from "@/data/categories";
 import { readProducts } from "@/lib/server/database";
 
+// Reuse one catalog snapshot during an RSC render, never across requests.
+const readCatalog = cache(readProducts);
+
 export function getProducts(category?: string) {
-  return readProducts().filter(
+  return readCatalog().filter(
     (product) => product.visible && (!category || product.category === category),
   );
 }

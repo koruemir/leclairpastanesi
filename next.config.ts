@@ -14,7 +14,10 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["better-sqlite3"],
   experimental: { serverActions: { bodySizeLimit: "10mb" } },
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"] },
+  // Local metadata is cheap to resolve; keep descriptions and noindex in the first head.
+  htmlLimitedBots: /.*/,
+  // WebP keeps the first uncached photo request inexpensive on the single instance.
+  images: { formats: ["image/webp"] },
 };
 
 export default nextConfig;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CakeSlice, Cookie, Croissant, Grid2X2, Cake } from "lucide-react";
-import { getCategories } from "@/lib/catalog";
+import { categories } from "@/data/categories";
 import { money } from "@/lib/cart";
 import type { Product } from "@/lib/types";
 import { QuickAdd } from "@/components/quick-add";
@@ -25,10 +25,10 @@ export function CategoryNavigation({
         className={!active ? "category-pill selected" : "category-pill"}
         aria-current={!active ? "page" : undefined}
       >
-        <Grid2X2 size={20} />
+        <Grid2X2 size={20} aria-hidden="true" />
         <span>Tümü</span>
       </Link>
-      {getCategories().map((category) => {
+      {categories.map((category) => {
         const Icon = categoryIcons[category.icon];
         return (
           <Link
@@ -37,7 +37,7 @@ export function CategoryNavigation({
             className={`category-pill ${active === category.slug ? "selected" : ""}`}
             aria-current={active === category.slug ? "page" : undefined}
           >
-            <Icon size={23} strokeWidth={1.4} />
+            <Icon size={23} strokeWidth={1.4} aria-hidden="true" />
             <span>{category.name}</span>
           </Link>
         );
@@ -60,12 +60,15 @@ export function ProductCard({ product }: { product: Product }) {
           src={product.image}
           alt={product.imageAlt}
           fill
-          sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 300px"
+          sizes="(max-width: 639px) calc((100vw - 44px) / 2), (max-width: 1023px) 30vw, 282px"
           className={`product-image ${product.id === "p05" ? "image-cake" : ""}`}
         />
         {product.badge && <span className="product-badge">{product.badge}</span>}
       </Link>
       <div className="product-info">
+        <span className="product-category">
+          {categories.find((category) => category.slug === product.category)?.name}
+        </span>
         <Link href={`/urun/${product.slug}`} className="product-title">
           <h3>{product.name}</h3>
         </Link>

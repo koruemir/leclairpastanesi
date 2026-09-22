@@ -6,6 +6,7 @@ import {
   money,
   resolveCart as resolve,
   sanitizeCart as sanitize,
+  sanitizeStoredCart,
 } from "../src/lib/cart";
 import type { CartLine } from "../src/lib/types";
 import { products } from "../src/data/catalog";
@@ -55,6 +56,27 @@ test("persisted duplicate lines are merged and capped at 99", () => {
     ]),
     [{ productId: "p03", variantId: "adet", quantity: 99 }],
   );
+});
+
+test("storage from a newer tab retains valid unknown IDs until a current catalog is available", () => {
+  const newLine = { productId: "new-product", variantId: "adet", quantity: 2 };
+  const stored = sanitizeStoredCart([{ ...newLine, price: 1, customerName: "private" }]);
+  assert.deepEqual(stored, [newLine]);
+  assert.deepEqual(sanitize(stored, products), []);
+  const updatedCatalog = [...products, { ...products[2], id: "new-product" }];
+  assert.deepEqual(sanitize(stored, updatedCatalog), [newLine]);
+});
+
+test("hidden products and malformed storage IDs cannot become resolved cart lines", () => {
+  assert.deepEqual(sanitizeStoredCart([
+    { productId: "", variantId: "adet", quantity: 1 },
+    { productId: "x".repeat(151), variantId: "adet", quantity: 1 },
+    { productId: "p03", variantId: "adet", quantity: Number.POSITIVE_INFINITY },
+  ]), []);
+  assert.deepEqual(sanitize(
+    [{ productId: "p03", variantId: "adet", quantity: 1 }],
+    products.map((product) => ({ ...product, visible: false })),
+  ), []);
 });
 
 test("money retains kuruş precision and Turkish formatting", () => {

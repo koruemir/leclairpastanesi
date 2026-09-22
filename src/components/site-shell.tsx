@@ -9,12 +9,13 @@ export function Wordmark({ footer = false }: { footer?: boolean }) {
     <Link
       className={`wordmark ${footer ? "wordmark-footer" : ""}`}
       href="/"
-      aria-label="Lecalir Pastanesi ana sayfa"
+      translate="no"
     >
       <span>
         Lecalir<span className="wordmark-dot">.</span>
       </span>
       <small>PASTANESİ</small>
+      <span className="visually-hidden"> — ana sayfa</span>
     </Link>
   );
 }
@@ -25,6 +26,9 @@ export function SiteHeader() {
       <div className="announcement">
         <Diamond />
         <span>Hayat, paylaştıkça tatlanır.</span>
+        <Link href="/menu" className="announcement-link">
+          Tatlı bir mola verin <ArrowUpRight size={12} aria-hidden="true" />
+        </Link>
         <Diamond />
       </div>
       <header className="site-header">
@@ -32,10 +36,10 @@ export function SiteHeader() {
           <DesktopNavigation />
           <Wordmark />
           <div className="header-actions">
-            <span className="header-location">
-              <MapPin size={16} />
+            <Link href="/iletisim" className="header-location">
+              <MapPin size={16} aria-hidden="true" />
               {business.neighborhood}, {business.district}
-            </span>
+            </Link>
             <HeaderCart />
           </div>
         </div>
@@ -73,7 +77,7 @@ export function SiteFooter() {
                 İstanbul
               </p>
               <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer">
-                Yol tarifi alın <ArrowUpRight size={17} />
+                Yol tarifi alın <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </div>
           </div>

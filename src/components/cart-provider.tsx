@@ -10,8 +10,14 @@ import {
   useRef,
 } from "react";
 import { usePathname } from "next/navigation";
-import { Check } from "lucide-react";
-import { addCartLine, CART_STORAGE_KEY, cartTotal, MAX_QUANTITY, sanitizeCart } from "@/lib/cart";
+import { AlertCircle, Check } from "lucide-react";
+import {
+  CART_STORAGE_KEY,
+  cartTotal,
+  MAX_QUANTITY,
+  sanitizeCart,
+  sanitizeStoredCart,
+} from "@/lib/cart";
 import type { CartLine, Product } from "@/lib/types";
 
 interface CartContextValue {
@@ -21,7 +27,7 @@ interface CartContextValue {
   ready: boolean;
   count: number;
   total: number;
-  add: (line: CartLine, productName: string) => void;
+  add: (line: CartLine, productName: string) => Promise<{ ok: boolean; error?: string }>;
   update: (productId: string, variantId: string, quantity: number) => void;
   remove: (productId: string, variantId: string) => void;
 }
@@ -36,26 +42,38 @@ export function CartProvider({
 }) {
   const [products, setProducts] = useState(initialProducts);
   const productsRef = useRef(initialProducts);
+  const [lines, setLines] = useState<CartLine[]>([]);
+  const linesRef = useRef<CartLine[]>([]);
+  const [ready, setReady] = useState(false);
+  const [notice, setNotice] = useState("");
+  const [noticeError, setNoticeError] = useState(false);
+  const commitLines = useCallback((next: CartLine[]) => {
+    linesRef.current = next;
+    setLines(next);
+  }, []);
   const inflight = useRef<Promise<Product[]> | null>(null);
   const pathname = usePathname();
   const refresh = useCallback((): Promise<Product[]> => {
     if (inflight.current) return inflight.current;
-    const request = fetch("/api/catalog", { cache: "no-store" })
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 8000);
+    const request = fetch("/api/catalog", { cache: "no-store", signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) throw new Error("Fiyatlar güncellenemedi. Lütfen tekrar deneyin.");
         const data = (await response.json()) as { products: Product[] };
         if (!Array.isArray(data.products)) throw new Error("Katalog okunamadı.");
         productsRef.current = data.products;
         setProducts(data.products);
-        setLines((current) => sanitizeCart(current, data.products));
+        commitLines(sanitizeCart(linesRef.current, data.products));
         return data.products;
       })
       .finally(() => {
+        window.clearTimeout(timeout);
         inflight.current = null;
       });
     inflight.current = request;
     return request;
-  }, []);
+  }, [commitLines]);
   useEffect(() => {
     const update = () => {
       void refresh().catch(() => {});
@@ -64,14 +82,10 @@ export function CartProvider({
     window.addEventListener("focus", update);
     return () => window.removeEventListener("focus", update);
   }, [pathname, refresh]);
-  const [lines, setLines] = useState<CartLine[]>([]);
-  const [ready, setReady] = useState(false);
-  const [notice, setNotice] = useState("");
-
   useEffect(() => {
     try {
       const saved = localStorage.getItem(CART_STORAGE_KEY);
-      if (saved) setLines(sanitizeCart(JSON.parse(saved), productsRef.current));
+      if (saved) commitLines(sanitizeStoredCart(JSON.parse(saved)));
     } catch {
       /* A blocked or malformed store must not prevent shopping. */
     }
@@ -79,16 +93,16 @@ export function CartProvider({
     const sync = (event: StorageEvent) => {
       if (event.key !== CART_STORAGE_KEY && event.key !== null) return;
       try {
-        setLines(
-          sanitizeCart(event.newValue ? JSON.parse(event.newValue) : [], productsRef.current),
-        );
+        commitLines(sanitizeStoredCart(event.newValue ? JSON.parse(event.newValue) : []));
+        // Do not discard products added in a tab that has a newer catalog.
+        void refresh().catch(() => {});
       } catch {
-        setLines([]);
+        commitLines([]);
       }
     };
     window.addEventListener("storage", sync);
     return () => window.removeEventListener("storage", sync);
-  }, []);
+  }, [commitLines, refresh]);
 
   useEffect(() => {
     if (!ready) return;
@@ -106,49 +120,59 @@ export function CartProvider({
   }, [notice]);
 
   const add = useCallback(
-    (line: CartLine, productName: string) => {
-      const insert = (catalog: Product[]) => {
-        if (
-          !catalog.some(
-            (p) => p.id === line.productId && p.variants.some((v) => v.id === line.variantId),
-          )
-        ) {
-          setNotice("Bu ürün artık satışta değil.");
-          return;
+    async (line: CartLine, productName: string) => {
+      try {
+        let catalog = productsRef.current;
+        if (!catalog.some((product) => product.id === line.productId &&
+          product.variants.some((variant) => variant.id === line.variantId))) {
+          catalog = await refresh();
         }
-        setLines((current) => addCartLine(current, line, catalog));
+        if (!sanitizeCart([line], catalog).length) throw new Error("Bu ürün artık satışta değil.");
+        const existing = linesRef.current.find((item) =>
+          item.productId === line.productId && item.variantId === line.variantId)?.quantity ?? 0;
+        if (existing + line.quantity > MAX_QUANTITY) {
+          throw new Error("Aynı ürün ve seçenekten en fazla 99 adet ekleyebilirsiniz.");
+        }
+        commitLines(sanitizeStoredCart([...linesRef.current, line]));
+        setNoticeError(false);
         setNotice(`${productName} sepetinize eklendi.`);
-      };
-      if (productsRef.current.some((p) => p.id === line.productId)) insert(productsRef.current);
-      else
-        void refresh()
-          .then(insert)
-          .catch(() => setNotice("Katalog güncellenemedi. Lütfen yeniden deneyin."));
+        return { ok: true };
+      } catch (error) {
+        const message =
+          error instanceof Error && error.name !== "AbortError" && error.name !== "TypeError"
+            ? error.message
+            : "Katalog güncellenemedi. Bağlantınızı kontrol edip yeniden deneyin.";
+        setNoticeError(true);
+        setNotice(message);
+        return { ok: false, error: message };
+      }
     },
-    [refresh],
+    [commitLines, refresh],
   );
   const update = useCallback((productId: string, variantId: string, quantity: number) => {
-    setLines((current) =>
-      current.map((line) =>
+    if (!Number.isFinite(quantity)) return;
+    commitLines(
+      linesRef.current.map((line) =>
         line.productId === productId && line.variantId === variantId
           ? { ...line, quantity: Math.max(1, Math.min(MAX_QUANTITY, Math.floor(quantity))) }
           : line,
       ),
     );
-  }, []);
+  }, [commitLines]);
   const remove = useCallback((productId: string, variantId: string) => {
-    setLines((current) =>
-      current.filter((line) => !(line.productId === productId && line.variantId === variantId)),
+    commitLines(
+      linesRef.current.filter((line) => !(line.productId === productId && line.variantId === variantId)),
     );
+    setNoticeError(false);
     setNotice("Ürün sepetinizden çıkarıldı.");
-  }, []);
+  }, [commitLines]);
   const value = useMemo(
     () => ({
       lines,
       products,
       refresh,
       ready,
-      count: lines.reduce((sum, line) => sum + line.quantity, 0),
+      count: sanitizeCart(lines, products).reduce((sum, line) => sum + line.quantity, 0),
       total: cartTotal(lines, products),
       add,
       update,
@@ -168,7 +192,7 @@ export function CartProvider({
       >
         {notice && (
           <>
-            <Check size={18} />
+            {noticeError ? <AlertCircle size={18} /> : <Check size={18} />}
             <span>{notice}</span>
           </>
         )}

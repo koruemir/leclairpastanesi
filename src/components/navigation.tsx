@@ -25,7 +25,13 @@ export function DesktopNavigation() {
               ? "active"
               : ""
           }
-          aria-current={pathname === item.href ? "page" : undefined}
+          aria-current={
+            pathname === item.href
+              ? "page"
+              : item.href !== "/" && pathname.startsWith(item.href)
+                ? "true"
+                : undefined
+          }
         >
           {item.name}
         </Link>
@@ -38,7 +44,7 @@ export function HeaderCart() {
   const { count } = useCart();
   return (
     <Link href="/sepet" className="header-cart" aria-label={`Sepetim, ${count} ürün`}>
-      <ShoppingBag size={21} />
+      <ShoppingBag size={21} aria-hidden="true" />
       <span className="header-cart-label">Sepetim</span>
       <span className="cart-count">{count}</span>
     </Link>
@@ -53,11 +59,11 @@ export function MobileNavigation() {
       {count > 0 && pathname !== "/sepet" && (
         <Link href="/sepet" className="floating-cart">
           <span>
-            <ShoppingBag size={19} />
+            <ShoppingBag size={19} aria-hidden="true" />
             {count} ürün <span className="floating-divider">·</span> {money(total)}
           </span>
           <span>
-            Sepeti Gör <ArrowUpRight size={18} />
+            Sepeti Gör <ArrowUpRight size={18} aria-hidden="true" />
           </span>
         </Link>
       )}
@@ -73,7 +79,7 @@ export function MobileNavigation() {
               aria-current={active ? "page" : undefined}
             >
               <span className="mobile-icon">
-                <item.icon size={21} />
+                <item.icon size={21} aria-hidden="true" />
                 {item.href === "/sepet" && count > 0 && (
                   <span className="mobile-count">{count}</span>
                 )}

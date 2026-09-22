@@ -1,13 +1,17 @@
 import { Breadcrumb } from "@/components/breadcrumb";
-import { CategoryNavigation, ProductGrid } from "@/components/catalog";
+import { CategoryNavigation, ProductCard } from "@/components/catalog";
+import { MenuExplorer } from "@/components/menu-explorer";
 import { getProducts } from "@/lib/catalog";
+import { createProductSearchItems } from "@/lib/product-search";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata(
-  "Tatlı menümüz",
-  "Lecalir Pastanesi menüsü: pastalar, ekler, meyveli tatlılar, fıstıklı baklavalar ve kurabiyeler. Güzelce Büyükçekmece’de paket servis ve mağazadan alım.",
-  "/menu",
-);
+export function generateMetadata() {
+  return pageMetadata(
+    "Tatlı menümüz",
+    "Lecalir Pastanesi menüsü: pastalar, ekler, meyveli tatlılar, fıstıklı baklavalar ve kurabiyeler. Güzelce Büyükçekmece’de paket servis ve mağazadan alım.",
+    "/menu",
+  );
+}
 
 export default function MenuPage() {
   const products = getProducts();
@@ -17,20 +21,16 @@ export default function MenuPage() {
       <div className="page-intro">
         <span className="eyebrow">LECALİR’İN TATLI DÜNYASI</span>
         <h1>
-          Biraz keyif, <em>biraz mutluluk.</em>
+          Tatlı <em>menümüz.</em>
         </h1>
         <p>
-          En sevdiğiniz klasiği ya da yeni bir tatlı molasını keşfedin.
-          <br />
-          Her kutuda, paylaşılacak bir mutluluk var.
+          En sevdiğiniz klasiği ya da yeni bir lezzeti keşfedin.
         </p>
       </div>
       <CategoryNavigation />
-      <div className="catalog-count">
-        <strong>Tüm lezzetler</strong>
-        <span>{products.length} tatlı seçenek</span>
-      </div>
-      <ProductGrid products={products} />
+      <MenuExplorer title="Tüm lezzetler" items={createProductSearchItems(products)}>
+        {products.map((product) => <ProductCard key={product.id} product={product} />)}
+      </MenuExplorer>
       <p className="sample-note">Örnek vitrin · Ürünler, görseller ve fiyatlar temsilidir.</p>
     </div>
   );

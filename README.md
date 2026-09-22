@@ -20,10 +20,12 @@ npm run build
 npm run start
 ```
 
+`npm run start`, standalone üretim sunucusunu açar ve gerekli statik dosyaları hazırlar. Yerel `.env.local` ayarlarını yükler; geliştirme ve üretim önizlemesi aynı `DATA_DIR` dizinini kullanır. Özel port için `npm run start -- --port 3001` kullanılabilir. Docker kendi standalone sunucusunu doğrudan çalıştırır.
+
 ## Sayfalar
 
 - `/`: vitrin, kategori bağlantıları, seçili ürünler, sipariş adımları, SSS.
-- `/menu` ve `/menu/[kategori]`: 12 örnek ürün, 4 kategori.
+- `/menu` ve `/menu/[kategori]`: 12 örnek ürün, 4 kategori; Türkçe arama ve fiyat sıralaması. Arama ve sıralama paylaşılabilir URL'de korunur.
 - `/urun/[slug]`: ürün, boy/paket seçimi, miktar, sepete ekleme ve benzer ürünler.
 - `/sepet`: sepet, teslimat formu, mesaj önizlemesi, kopyalama ve yapılandırıldığında WhatsApp bağlantısı.
 - `/iletisim`: mağaza konumu ve teslim alma seçenekleri.
@@ -51,6 +53,7 @@ Telefon boş veya geçersizse WhatsApp düğmesi pasiftir; form doğrulaması, �
 
 - `lecalir-cart-v1` tarayıcı kaydında yalnızca ürün kimliği, seçenek kimliği ve adet tutulur.
 - Güncel fiyatlar katalogdan hesaplanır; tarayıcı kaydındaki fiyatlara güvenilmez.
+- Sepete ekleme sonucu doğrulanmadan başarı gösterilmez. Katalog isteği sekiz saniyede sonuçlanmazsa yeniden denenebilir hata verilir; başka sekmeden gelen yeni ürünler katalog yenilenirken kaybolmaz.
 - Silinen/gizlenen ürünler, bozuk kayıtlar ve geçersiz miktarlar ayıklanır; aynı ürün/seçenek 99 adetle sınırlandırılır.
 - Ad, adres, mahalle ve not yalnızca o sayfanın belleğinde bulunur. Yenilemede silinir; localStorage'a veya bir sunucuya gönderilmez.
 - Mağazadan alım seçilince adres alanları görünmez ve mesajdan tamamen çıkarılır.
@@ -68,7 +71,7 @@ Demo varsayılan olarak `noindex, follow` üretir. `robots.txt` taramaya izin ve
 3. `NEXT_PUBLIC_SITE_URL` gerçek HTTPS alan adı olmalı.
 4. `NEXT_PUBLIC_SITE_LIVE=true` ayarlanmalı ve yeni derleme yapılmalı.
 
-Bu koşullardan biri eksikse sistem `noindex` kalır; varsayımsal bir alan adına canonical üretmez. Gerçek yayın durumunda `Bakery` ve gerçek ürünlere ait `Product`/`Offer` şemaları etkinleşir. Breadcrumb şeması yalnızca gerçek site URL'si yapılandırıldığında üretilir. Sahte stok, yıldız veya değerlendirme verisi yoktur. Sosyal paylaşım başlık/açıklamaları hazırdır; ayrıca üretilmiş sosyal kart eklenmemiştir.
+Bu koşullardan biri eksikse sistem `noindex` kalır; varsayımsal bir alan adına canonical üretmez. Gerçek yayın durumunda `Bakery` ve gerçek ürünlere ait `Product`/`Offer` şemaları etkinleşir. Breadcrumb şeması yalnızca gerçek site URL'si yapılandırıldığında üretilir. Sahte stok, yıldız veya değerlendirme verisi yoktur. Sosyal paylaşım için başlık, açıklama ve yerel vitrin görselinden üretilen 1200 × 630 piksel kart bulunur. WhatsApp ve diğer sosyal uygulamalarda doğru mutlak görsel adresi için gerçek `NEXT_PUBLIC_SITE_URL` ayarlanmalıdır.
 
 ## Kontroller
 
@@ -88,7 +91,7 @@ npm run start -- --port 3001
 PLAYWRIGHT_BASE_URL=http://localhost:3001 npm run test:e2e
 ```
 
-Testler fiyat hesaplarını, kayıt temizliğini, Türkçe WhatsApp kodlamasını, teslimat formunu, teslim şekli değişiminde adresin mesajdan çıkarılmasını, farklı ürün seçeneklerini, sepet kalıcılığını, bozuk kayıt kurtarmayı, demo SEO'yu, erişilebilirliği ve 360/390/768/1440 px genişlikleri kapsar. Mesajlar gerçek bir WhatsApp hesabına gönderilmez.
+Testler fiyat hesaplarını, kayıt temizliğini, Türkçe arama ve WhatsApp kodlamasını, paylaşılabilir filtreleri, sıralamayı, teslimat formunu, teslim şekli değişiminde adresin mesajdan çıkarılmasını, farklı ürün seçeneklerini, sepet kalıcılığını, sekmeler arası güncellemeyi, bağlantı zaman aşımını, demo SEO'yu, erişilebilirliği ve 360/390/768/1440 px genişlikleri kapsar. Mesajlar gerçek bir WhatsApp hesabına gönderilmez.
 
 Lighthouse, geliştirme sunucusu yerine üretim derlemesi üzerinde çalıştırılmalıdır. Hedef mobil performans 90+, canlı p75 LCP ≤2,5 saniye, INP ≤200 ms, CLS ≤0,1. Gerçek kullanıcı CWV sonuçları ancak yayından sonra yeterli ziyaretçi verisiyle doğrulanabilir.
 

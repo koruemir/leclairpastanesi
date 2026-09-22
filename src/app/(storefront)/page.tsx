@@ -1,19 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, MapPin, PackageCheck, ShoppingBag } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  MapPin,
+  PackageCheck,
+  ShoppingBag,
+  Coffee,
+  Store,
+} from "lucide-react";
 import { CategoryNavigation, ProductGrid } from "@/components/catalog";
 import { Botanical, Diamond, WhatsAppIcon } from "@/components/icons";
 import { getProducts } from "@/lib/catalog";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  ...pageMetadata(
-    "Güzelce’de tatlı bir mola",
-    "Lecalir Pastanesi, Güzelce Büyükçekmece. Pastalar, ekler, baklavalar ve kurabiyeleri keşfedin; paket servis veya mağazadan alım için WhatsApp’tan sipariş talebi oluşturun.",
-    "/",
-  ),
-  title: { absolute: "Lecalir Pastanesi — Güzelce, Büyükçekmece" },
-};
+export function generateMetadata() {
+  return {
+    ...pageMetadata(
+      "Güzelce’de tatlı bir mola",
+      "Lecalir Pastanesi, Güzelce Büyükçekmece. Pastalar, ekler, baklavalar ve kurabiyeleri keşfedin; paket servis veya mağazadan alım için WhatsApp’tan sipariş talebi oluşturun.",
+      "/",
+    ),
+    title: { absolute: "Lecalir Pastanesi — Güzelce, Büyükçekmece" },
+  };
+}
 
 const faqs = [
   [
@@ -37,70 +47,127 @@ const faqs = [
 export default function HomePage() {
   return (
     <>
-      <section className="hero container" aria-labelledby="hero-title">
-        <div className="hero-image">
+      <section className="maison-hero container" aria-labelledby="hero-title">
+        <div className="maison-copy">
+          <span className="eyebrow maison-location">
+            <span /> GÜZELCE · BÜYÜKÇEKMECE
+          </span>
+          <h1 id="hero-title">
+            Hayatın en
+            <br />
+            <em>tatlı molası.</em>
+          </h1>
+          <p>
+            Bir dilim pasta, küçük bir ekler, paylaşılacak bir kutu mutluluk. Kendinize tatlı bir an
+            ayırın.
+          </p>
+          <div className="maison-actions">
+            <Link className="button button-green" href="/menu">
+              Tatlıları Keşfet <ArrowUpRight size={19} aria-hidden="true" />
+            </Link>
+            <a className="text-link" href="#nasil-siparis">
+              Nasıl sipariş verilir? <ArrowRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="maison-service">
+            <Store size={17} strokeWidth={1.4} aria-hidden="true" />
+            <span>Mağazadan alım</span>
+            <span className="service-dot">·</span>
+            <span>Paket servis</span>
+          </div>
+        </div>
+        <div className="maison-photo">
           <Image
             src="/images/hero.webp"
-            alt="Kırmızı meyveler ve fıstıkla süslenmiş çikolatalı Lecalir örnek pastası"
+            alt="Frambuaz, çilek ve çikolata parçalarıyla süslenmiş örnek Lecalir pastası"
             fill
             loading="eager"
             fetchPriority="high"
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            decoding="sync"
+            sizes="(max-width: 767px) 100vw, (max-width: 1200px) 55vw, 660px"
           />
+          <span className="maison-photo-label">BİR DİLİM MUTLULUK</span>
+          <div className="maison-photo-caption">
+            <span>
+              Çikolata, meyve
+              <br />
+              <em>ve biraz sihir.</em>
+            </span>
+            <Link href="/menu/pastalar" aria-label="Pastaları keşfet">
+              <ArrowUpRight size={25} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
-        <div className="hero-shade" />
-        <div className="hero-copy">
-          <span className="hero-eyebrow">
-            <span />
-            GÜZELCE’DE TATLI BİR MOLA
-          </span>
-          <h1 id="hero-title">
-            Küçük anlara,
-            <br />
-            <em>büyük mutluluklar.</em>
-          </h1>
-          <p>
-            Geleneksel lezzetler, zarif dokunuşlar.
-            <br />
-            Her lokmada biraz daha mutluluk.
-          </p>
-          <Link className="button button-cream" href="/menu">
-            Tatlıları Keşfet <ArrowUpRight size={20} />
-          </Link>
+        <div className="maison-seal" aria-hidden="true">
+          <span>LECALİR</span>
+          <Diamond />
+          <small>TATLI ANLAR</small>
         </div>
-        <div className="hero-note">
-          Tatlı, her zaman
-          <br />
-          daha iyi bir fikirdir.
-        </div>
-        <span className="hero-caption">LECALİR’İN TATLI DÜNYASINA HOŞ GELDİNİZ</span>
       </section>
       <div className="container">
         <CategoryNavigation home />
       </div>
-      <section className="container collection-section" aria-labelledby="collection-title">
+      <section
+        id="vitrin"
+        className="container collection-section"
+        aria-labelledby="collection-title"
+      >
         <div className="section-heading">
           <div>
-            <span className="eyebrow">BİR TATLI SEÇ, GÜNÜN GÜZELLEŞSİN</span>
+            <span className="eyebrow">LECALİR KOLEKSİYONU</span>
             <h2 id="collection-title">
               Vitrinimizden <em>seçtiklerimiz</em>
             </h2>
           </div>
           <Link className="text-link" href="/menu">
-            Tüm lezzetler <ArrowUpRight size={18} />
+            Tüm lezzetler <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </div>
-        <ProductGrid products={getProducts().filter((product) => product.featured)} />
+        <ProductGrid
+          products={getProducts()
+            .filter((product) => product.featured)
+            .slice(0, 8)}
+        />
         <p className="sample-note">
           Bu tatlı vitrin şimdilik örnek ürünler ve fiyatlarla hazırlanmıştır.
         </p>
         <div className="collection-bottom">
           <Link className="button button-outline" href="/menu">
-            Menünün tamamını keşfet <ArrowRight size={18} />
+            Menünün tamamını keşfet <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
       </section>
-      <section className="order-banner container">
+      <section className="sweet-moments container" aria-labelledby="moments-title">
+        <div className="moment-photo">
+          <Image
+            src="/images/eclair.webp"
+            alt="Çikolata kaplı eklerlerden oluşan örnek tatlı sunumu"
+            fill
+            sizes="(max-width: 767px) 100vw, 600px"
+          />
+          <span className="moment-photo-label">KÜÇÜK BİR KAÇAMAK</span>
+        </div>
+        <div className="moment-copy">
+          <Coffee size={28} strokeWidth={1.1} aria-hidden="true" />
+          <span className="eyebrow">GÜNÜN EN GÜZEL BAHANESİ</span>
+          <h2>
+            Kahvenizin yanında
+            <br />
+            <em>bir tatlı hikâye.</em>
+          </h2>
+          <p>
+            Uzun bir sohbetin, kısa bir molanın ya da “sadece canım istedi” anının yanına. Ekler,
+            tart ve profiterollerle kendinize küçük bir iyilik yapın.
+          </p>
+          <Link href="/menu/tatlilar" className="text-link">
+            Tatlı molanı seç <ArrowUpRight size={18} aria-hidden="true" />
+          </Link>
+          <span className="moment-signature" aria-hidden="true">
+            Afiyetle, Lecalir.
+          </span>
+        </div>
+      </section>
+      <section className="order-banner container" aria-label="WhatsApp ile sipariş">
         <Botanical className="banner-botanical" />
         <div className="order-banner-icon">
           <WhatsAppIcon width={38} height={38} />
@@ -113,10 +180,10 @@ export default function HomePage() {
           <p>Sepetinizi oluşturun, sipariş talebinizi WhatsApp’tan iletin.</p>
         </div>
         <Link href="/menu" className="button button-green">
-          Sepetini Oluştur <ArrowUpRight size={19} />
+          Sepetini Oluştur <ArrowUpRight size={19} aria-hidden="true" />
         </Link>
       </section>
-      <section className="container how-section" aria-labelledby="how-title">
+      <section id="nasil-siparis" className="container how-section" aria-labelledby="how-title">
         <div className="centered-heading">
           <span className="eyebrow">SİPARİŞİN TATLI YOLU</span>
           <h2 id="how-title">Üç küçük adım.</h2>
@@ -124,7 +191,7 @@ export default function HomePage() {
         <div className="steps-grid">
           <div className="step">
             <span className="step-icon">
-              <ShoppingBag size={25} strokeWidth={1.3} />
+              <ShoppingBag size={25} strokeWidth={1.3} aria-hidden="true" />
               <small>01</small>
             </span>
             <h3>Kalbinizden geçeni seçin</h3>
@@ -146,7 +213,7 @@ export default function HomePage() {
           </div>
           <div className="step">
             <span className="step-icon">
-              <PackageCheck size={26} strokeWidth={1.3} />
+              <PackageCheck size={26} strokeWidth={1.3} aria-hidden="true" />
               <small>03</small>
             </span>
             <h3>Mutluluğa yer açın</h3>
@@ -165,7 +232,8 @@ export default function HomePage() {
             <em>tatlı cevaplar.</em>
           </h2>
           <Link className="text-link" href="/iletisim">
-            <MapPin size={17} /> Bizi ziyaret edin <ArrowUpRight size={17} />
+            <MapPin size={17} aria-hidden="true" /> Bizi ziyaret edin{" "}
+            <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
         </div>
         <div className="faq-list">

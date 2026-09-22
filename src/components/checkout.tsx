@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
   Check,
   Copy,
   Eye,
+  LoaderCircle,
   ShoppingBag,
   Store,
   Trash2,
@@ -42,11 +43,14 @@ export function Checkout() {
   const [refreshError, setRefreshError] = useState("");
   const [busy, setBusy] = useState(false);
   const reviewedMessage = useRef("");
+  const latestCheckout = useRef({ lines, details });
+  latestCheckout.current = { lines, details };
   const resolved = resolveCart(lines, products);
   const errors = attempted ? validateCheckout(details) : {};
   const message = buildOrderMessage(resolved, details);
   const link = whatsappUrl(business.whatsappPhone, message);
   const validPreview = showPreview && Object.keys(validateCheckout(details)).length === 0;
+  useEffect(() => setCopyStatus(""), [message]);
 
   function change<K extends keyof CheckoutDetails>(key: K, value: CheckoutDetails[K]) {
     setDetails((current) => ({ ...current, [key]: value }));
@@ -65,7 +69,13 @@ export function Checkout() {
     setBusy(true);
     try {
       const current = await refresh();
-      reviewedMessage.current = buildOrderMessage(resolveCart(lines, current), details);
+      const latest = latestCheckout.current;
+      const freshLines = resolveCart(latest.lines, current);
+      if (Object.keys(validateCheckout(latest.details)).length || !freshLines.length) {
+        setRefreshError("Sepetiniz veya teslimat bilgileriniz değişti. Lütfen kontrol edip yeniden önizleyin.");
+        return;
+      }
+      reviewedMessage.current = buildOrderMessage(freshLines, latest.details);
       setRefreshError("");
     } catch {
       setRefreshError("Güncel fiyatlar alınamadı. Bağlantınızı kontrol edip tekrar deneyin.");
@@ -89,7 +99,14 @@ export function Checkout() {
     setBusy(true);
     try {
       const current = await refresh();
-      const fresh = buildOrderMessage(resolveCart(lines, current), details);
+      const latest = latestCheckout.current;
+      const freshLines = resolveCart(latest.lines, current);
+      if (!freshLines.length || Object.keys(validateCheckout(latest.details)).length) {
+        setAttempted(true);
+        setRefreshError("Sepetinizi ve teslimat bilgilerinizi kontrol edip yeniden önizleyin.");
+        return null;
+      }
+      const fresh = buildOrderMessage(freshLines, latest.details);
       if (fresh !== reviewedMessage.current) {
         reviewedMessage.current = fresh;
         setCopyStatus("");
@@ -205,7 +222,9 @@ export function Checkout() {
             </p>
           </div>
         </div>
-        <p className="sample-note">Bu sepetteki ürün ve fiyatlar örnektir.</p>
+        {resolved.some((line) => line.product.isDemo) && (
+          <p className="sample-note">Bu sepetteki ürün ve fiyatlar örnektir.</p>
+        )}
       </div>
       <aside className="checkout-panel" aria-label="Teslimat ve sipariş özeti">
         <div className="cart-summary">
@@ -213,7 +232,9 @@ export function Checkout() {
           <strong data-testid="cart-total">{money(total)}</strong>
         </div>
         <p className="delivery-price-note">
-          Paket servis ücreti dahil değildir; WhatsApp’ta netleşir.
+          {details.fulfillment === "delivery"
+            ? "Paket servis ücreti dahil değildir; WhatsApp’ta netleşir."
+            : "Mağazadan teslim zamanı WhatsApp’ta netleşir."}
         </p>
         <form ref={formRef} onSubmit={preview} noValidate>
           <fieldset className="fulfillment-fieldset">
@@ -357,9 +378,9 @@ export function Checkout() {
             Bilgileriniz yalnızca hazırlanan sipariş mesajına eklenir; bu sitede kalıcı olarak
             saklanmaz.
           </p>
-          <button type="submit" disabled={busy} className="button button-green button-wide">
-            <Eye size={18} />
-            {validPreview ? "Mesaj Önizlemesine Git" : "Sipariş Mesajını Önizle"}
+          <button type="submit" disabled={busy} aria-busy={busy} className="button button-green button-wide">
+            {busy ? <LoaderCircle size={18} className="loading-spinner" /> : <Eye size={18} />}
+            {busy ? "Fiyatlar kontrol ediliyor…" : validPreview ? "Mesaj Önizlemesine Git" : "Sipariş Mesajını Önizle"}
             <ArrowRight size={17} />
           </button>
         </form>

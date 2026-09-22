@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { CategoryNavigation, ProductGrid } from "@/components/catalog";
+import { CategoryNavigation, ProductCard } from "@/components/catalog";
+import { MenuExplorer } from "@/components/menu-explorer";
 import { getCategories, getCategory, getProducts } from "@/lib/catalog";
+import { createProductSearchItems } from "@/lib/product-search";
 import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -38,11 +40,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ kateg
         <p>{category.description}</p>
       </div>
       <CategoryNavigation active={kategori} />
-      <div className="catalog-count">
-        <strong>{category.name}</strong>
-        <span>{products.length} tatlı seçenek</span>
-      </div>
-      <ProductGrid products={products} />
+      <MenuExplorer title={category.name} items={createProductSearchItems(products)}>
+        {products.map((product) => <ProductCard key={product.id} product={product} />)}
+      </MenuExplorer>
       <p className="sample-note">Örnek vitrin · Ürünler, görseller ve fiyatlar temsilidir.</p>
     </div>
   );
