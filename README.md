@@ -24,7 +24,7 @@ npm run start
 
 ## Coolify'da yayınlama
 
-Git kaynağında **`feat/lecalir-admin`** dalını seçin. Build Pack **Dockerfile**, base directory **`/`**, Dockerfile location **`/Dockerfile`**, exposed port **`3000`** olmalıdır. Uygulama tek instance çalışır; Persistent Storage için bir **Volume Mount** oluşturup destination path alanını **`/data`** yapın.
+Git kaynağında **`main`** dalını seçin. Build Pack **Dockerfile**, base directory **`/`**, Dockerfile location **`/Dockerfile`**, exposed port **`3000`** olmalıdır. Uygulama tek instance çalışır; Persistent Storage için bir **Volume Mount** oluşturup destination path alanını **`/data`** yapın.
 
 [Coolify ortam değişkeni şablonu](.env.coolify.example) public build ayarlarını ve sunucu ayarlarını ayırır. `ADMIN_PASSWORD` yalnızca Runtime açık, Build kapalı ve Literal açık olmalıdır. Üç `NEXT_PUBLIC_` değeri derleme sırasında alınır. Gerçek HTTPS alan adını Coolify Domains ve `NEXT_PUBLIC_SITE_URL` alanlarına girin; örnek içerikle `NEXT_PUBLIC_SITE_LIVE=false` bırakın.
 

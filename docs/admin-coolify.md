@@ -21,7 +21,7 @@ Bu bölüm repo içindeki uygulamayı Coolify'a kurmak içindir. Alan adı, DNS,
 ### Kaynak ve uygulama ayarları
 
 1. Coolify'da yeni bir Git uygulaması oluşturun. Repo: `git@github.com:koruemir/leclairpastanesi.git`. Özel repo için GitHub bağlantısı veya bu repoyu okuyabilen bir deploy key kullanın.
-2. **Branch: `feat/lecalir-admin`** seçin. Bu frontend ve admin uygulaması bu branch'tedir; `main` başka bir eski sürümü içerir.
+2. **Branch: `main`** seçin. Güncel vitrin, admin paneli ve yayınlama dosyaları bu daldadır.
 3. **Build Pack: Dockerfile**, **Base Directory: `/`**, **Dockerfile Location: `/Dockerfile`**. Build context proje köküdür. Ayrı install/build/start komutları tanımlamayın; bunları Dockerfile yönetir.
 4. **Ports Exposes: `3000`**, uygulama örneği sayısı **1**. Dockerfile `0.0.0.0:3000` üzerinde `node server.js` çalıştırır. Dışarıya bir host portu yayımlamak gerekmez; alan adına Coolify proxy üzerinden erişilir.
 5. **Advanced → Inject Build Args to Dockerfile: kapalı**. Kullanılan public build arg'ları Dockerfile içinde zaten açıkça tanımlıdır.
