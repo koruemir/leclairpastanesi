@@ -22,6 +22,18 @@ npm run start
 
 `npm run start`, standalone üretim sunucusunu açar ve gerekli statik dosyaları hazırlar. Yerel `.env.local` ayarlarını yükler; geliştirme ve üretim önizlemesi aynı `DATA_DIR` dizinini kullanır. Özel port için `npm run start -- --port 3001` kullanılabilir. Docker kendi standalone sunucusunu doğrudan çalıştırır.
 
+## Coolify'da yayınlama
+
+Git kaynağında **`feat/lecalir-admin`** dalını seçin. Build Pack **Dockerfile**, base directory **`/`**, Dockerfile location **`/Dockerfile`**, exposed port **`3000`** olmalıdır. Uygulama tek instance çalışır; Persistent Storage için bir **Volume Mount** oluşturup destination path alanını **`/data`** yapın.
+
+[Coolify ortam değişkeni şablonu](.env.coolify.example) public build ayarlarını ve sunucu ayarlarını ayırır. `ADMIN_PASSWORD` yalnızca Runtime açık, Build kapalı ve Literal açık olmalıdır. Üç `NEXT_PUBLIC_` değeri derleme sırasında alınır. Gerçek HTTPS alan adını Coolify Domains ve `NEXT_PUBLIC_SITE_URL` alanlarına girin; örnek içerikle `NEXT_PUBLIC_SITE_LIVE=false` bırakın.
+
+Docker imajı `/api/health` üzerinden SQLite bağlantısını kontrol eden sağlık kontrolünü içerir; ek `curl` kurulumu gerekmez. Coolify'da **Consistent Container Names** açık ve **Stop Grace Period** 30 saniye olmalıdır; böylece eski ve yeni sürümler aynı SQLite diskini eşzamanlı kullanmaz. Yeniden yayınlama sırasında kısa kesinti olabilir.
+
+Alanlar, disk izinleri, HTTPS, yedekleme ve doğrulama adımları: [Admin ve Coolify kurulum rehberi](docs/admin-coolify.md).
+
+ARM64/AMD64 Docker derlemeleri, container testleri ve aynı diskle yeniden kurulum sonucu: [Coolify hazırlık doğrulaması](reports/coolify-verification.md).
+
 ## Sayfalar
 
 - `/`: vitrin, kategori bağlantıları, seçili ürünler, sipariş adımları, SSS.

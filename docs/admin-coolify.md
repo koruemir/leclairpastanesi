@@ -16,16 +16,68 @@ Fiyat alanına `95` veya `95,50` yazılır; binlik ayırıcı kullanılmaz. Foto
 
 ## Coolify
 
-1. Build Pack: **Dockerfile**. Dockerfile yolu: `/Dockerfile`; build context: proje kökü.
-2. Uygulama portu: **3000**. Uygulama örneği sayısı: **1**. Dockerfile içindeki `node server.js` başlangıç komutunu kullanın.
-3. Runtime environment variables: `ADMIN_PASSWORD` (size özel bir şifre) ve `DATA_DIR=/data`. `ADMIN_PASSWORD` için build-time seçeneği gerekmez.
-4. **Persistent Storage** bölümünde bir volume oluşturun; container hedefi **`/data`** olmalı. Veritabanı, SQLite WAL dosyaları ve `uploads/` birlikte bu dizinde tutulur.
-5. Alan adını HTTPS ile bağlayın. Proxy, gerçek alan adını `X-Forwarded-Host` başlığında iletmeli; Server Action origin doğrulaması bunu kullanır. Wildcard origin izni eklemeyin.
-6. Yayınlayın; `/admin` üzerinden giriş yapın. Yeni ürün/fiyat/sıralama değişiklikleri için redeploy gerekmez.
+Bu bölüm repo içindeki uygulamayı Coolify'a kurmak içindir. Alan adı, DNS, HTTPS sertifikası ve aşağıdaki ayarlar uygulamanın kurulacağı Coolify hesabında tamamlanır.
 
-İmaj `node` kullanıcısıyla (UID/GID 1000) çalışır. Yeni Docker volume, imajın `/data` sahipliğini alır. Bind mount veya önceden var olan root sahipli bir volume kullanırsanız, **yalnızca bu uygulamanın veri dizininin** sahipliğini `1000:1000` yapın; uygulama oraya yazabilmelidir. Sağlık kontrolü için `GET /api/catalog` kullanılabilir; veritabanından da okur.
+### Kaynak ve uygulama ayarları
 
-`NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_WHATSAPP_PHONE` ve `NEXT_PUBLIC_SITE_LIVE` Docker build arg olarak desteklenir. Coolify'da bu public değişkenleri build-time için de etkinleştirin. Bunlar değişirse yeniden derleme gerekir; admin şifresi yalnızca runtime değişkenidir. Demo içerik mevcutken `NEXT_PUBLIC_SITE_LIVE=false` bırakın.
+1. Coolify'da yeni bir Git uygulaması oluşturun. Repo: `git@github.com:koruemir/leclairpastanesi.git`. Özel repo için GitHub bağlantısı veya bu repoyu okuyabilen bir deploy key kullanın.
+2. **Branch: `feat/lecalir-admin`** seçin. Bu frontend ve admin uygulaması bu branch'tedir; `main` başka bir eski sürümü içerir.
+3. **Build Pack: Dockerfile**, **Base Directory: `/`**, **Dockerfile Location: `/Dockerfile`**. Build context proje köküdür. Ayrı install/build/start komutları tanımlamayın; bunları Dockerfile yönetir.
+4. **Ports Exposes: `3000`**, uygulama örneği sayısı **1**. Dockerfile `0.0.0.0:3000` üzerinde `node server.js` çalıştırır. Dışarıya bir host portu yayımlamak gerekmez; alan adına Coolify proxy üzerinden erişilir.
+5. **Advanced → Inject Build Args to Dockerfile: kapalı**. Kullanılan public build arg'ları Dockerfile içinde zaten açıkça tanımlıdır.
+6. **Advanced → Consistent Container Names: açık** ve **Stop Grace Period: 30 saniye**. Böylece yeniden yayınlama sırasında mevcut container durur, sonra yenisi başlar. Bu proje tek instance ve yerel SQLite kullanır; bu ayarla kısa bir yeniden başlatma kesintisi beklenir.
+
+Coolify'ın [Dockerfile kurulumu](https://coolify.io/docs/applications/builds/dockerfile) build context, iç port ve build arg ayarlarını açıklar. Yalnızca örnek sayısını 1 yapmak geçici container çakışmasını engellemez; **Consistent Container Names**, [rolling updates belgesinde](https://coolify.io/docs/applications/deployments/rolling-updates) belirtilen önce durdurma koşuludur.
+
+### Ortam değişkenleri
+
+`.env.coolify.example` dosyasını değer listesi olarak kullanın. Gerçek şifreyi Coolify **Configuration → Environment Variables** içinde girin; repoya veya Dockerfile'a yazmayın.
+
+| Değişken | Değer | Build Variable | Runtime Variable |
+| --- | --- | --- | --- |
+| `ADMIN_PASSWORD` | Size özel, uzun ve rastgele bir şifre | **Kapalı** | **Açık** |
+| `DATA_DIR` | `/data` | **Kapalı** | **Açık** |
+| `NEXT_PUBLIC_SITE_URL` | Gerçek HTTPS alan adınız; hazır değilse boş | **Açık** | **Açık** |
+| `NEXT_PUBLIC_WHATSAPP_PHONE` | Gerçek işletme numarası, ülke koduyla yalnızca rakamlar; hazır değilse boş | **Açık** | **Açık** |
+| `NEXT_PUBLIC_SITE_LIVE` | `false` | **Açık** | **Açık** |
+
+`ADMIN_PASSWORD` için **Literal** seçeneğini de açın; şifredeki `$` gibi karakterler değişken olarak yorumlanmasın. Coolify yeni değişkenlerde Build ve Runtime seçeneklerini varsayılan olarak birlikte açabilir. Şifre ve `DATA_DIR` için **Build Variable'ı özellikle kapatın**. Docker build arg'ları image metadata içinde görünebilir. [Coolify ortam değişkenleri](https://coolify.io/docs/applications/configuration/environment-variables)
+
+`NEXT_PUBLIC_*` değerleri derleme sırasında tarayıcı paketine yazılır. Bu üç değer değiştiğinde **yeni deployment ile yeniden derleyin**; yalnızca restart yeterli değildir. `ADMIN_PASSWORD` veya `DATA_DIR` değişikliğinde runtime ortamının yenilenmesi için restart gerekir. Şifre değişince eski admin oturumları geçersiz olur. [Next.js ortam değişkenleri](https://nextjs.org/docs/app/guides/environment-variables)
+
+Gerçek alan adı veya WhatsApp numarası verilmediyse bu alanlar boş kalabilir. Mesaj önizleme/kopyalama çalışır; örnek numaraya yönlendirme yapılmaz. **Demo içerik mevcutken `NEXT_PUBLIC_SITE_LIVE=false` kalır.** Bu panel ürün doğrulamasını ve indekslemeyi açmaz; değişkeni `true` yapmak da doğrulanmış işletme ve gerçek katalog koşullarını tek başına sağlamaz.
+
+### Kalıcı disk ve izinler
+
+**Configuration → Persistent Storage → Add → Volume Mount** ekleyin:
+
+- Name: örneğin `lecalir-data`.
+- Source Path: **boş**; Docker'ın yönettiği named volume kullanılır.
+- Destination Path: **`/data`**.
+
+Diski **ilk yayından önce** ekleyin. Veritabanı, SQLite WAL dosyaları ve yüklenen fotoğraflar aynı volume'da tutulur. Sonradan eklenen mount, daha önce silinmiş container verisini geri getirmez. [Coolify kalıcı depolama](https://coolify.io/docs/applications/configuration/persistent-storage)
+
+İmaj `node` kullanıcısıyla **UID/GID `1000:1000`** çalışır. Yeni ve boş named volume, imajın `/data` sahipliğini alır. Bind mount veya önceden var olan root sahipli bir volume kullanıyorsanız sunucuda **yalnızca bu uygulamaya ayrılmış veri dizininin** sahipliğini `1000:1000` yapın. Uygulamanın hem `/data` hem de mevcut `/data/uploads` içine yazabilmesi gerekir. Çözüm olarak uygulamayı root çalıştırmayın veya genel `chmod 777` kullanmayın.
+
+Preview deployment açılacaksa ayrı volume, ayrı admin şifresi ve `NEXT_PUBLIC_SITE_LIVE=false` kullanın. Preview uygulamasını üretimin `/data` volume'una bağlamayın. Tek volume'u birden fazla sunucu/uygulama instance'ı arasında paylaşmayın.
+
+### HTTPS ve sağlık kontrolü
+
+Gerçek alan adının DNS kayıtlarını Coolify sunucusuna yönlendirin ve uygulama alan adını **HTTPS** ile tanımlayın. Admin'in üretim oturum çerezi `Secure` olduğu için HTTP adresinden giriş oturumu kullanılamaz. Proxy, gerçek alan adını `Host`/`X-Forwarded-Host` başlığında iletmelidir. Server Action origin doğrulamasını kapatmayın veya wildcard origin izni eklemeyin.
+
+Dockerfile'daki **`HEALTHCHECK`**, Node'un yerleşik `fetch` işleviyle container içindeki **`GET /api/health`** adresini kontrol eder. Ek `curl`/`wget` kurulumu gerekmez. Coolify bu image healthcheck'ini devralır; panelde ayrıca HTTP healthcheck tanımlamak gerekmez. `/api/health` yanıtı `200` olduğunda uygulamanın veri katmanı kontrolü başarılıdır. Çalışan uygulamada veri kontrolü başarısızsa endpoint `503` döner. Veri dizini nedeniyle başlangıç tamamen başarısızsa Next.js `500` döndürebilir; her iki durumda da container sağlıksız sayılır. Ayrıntı için uygulama loglarını inceleyin.
+
+Coolify'ın [health checks belgesine](https://coolify.io/docs/applications/configuration/health-checks) göre Dockerfile healthcheck'i paneldeki ayardan önceliklidir. Panelden HTTP kontrolüne geçilecekse imajdaki kontrol kaldırılmalı ve final imaja `curl` veya `wget` eklenmelidir; bu proje mevcut Node kontrolünü kullanır.
+
+### İlk yayın doğrulaması
+
+1. Deploy edin; build logunda başarılı derlemeyi, runtime logunda sunucunun açıldığını ve container'ın **healthy** olduğunu doğrulayın.
+2. HTTPS alan adından ana sayfayı, menüyü ve bir ürün sayfasını açın. Fotoğrafların ve fontların yüklendiğini kontrol edin.
+3. `/admin` üzerinden giriş yapın; bir seçenek fiyatını güncelleyin, katalogda kullanılacak bir ürün ekleyin ve sıralamayı kaydedin. Mağaza değişiklikleri yeniden derleme olmadan göstermelidir. Panelde ürün silme bulunmadığı için deneme ürünüyle yapılacak testlerde ayrı, atılabilir bir volume kullanın.
+4. Uygulamayı aynı volume ile yeniden başlatın/yeniden yayınlayın. Kaydedilen fiyat, ürün sırası ve yüklenen fotoğrafın korunduğunu doğrulayın.
+5. Sepette güncel fiyatın kullanıldığını ve WhatsApp numarası boşsa yalnızca önizleme/kopyalama sunulduğunu kontrol edin.
+
+Veri içeren volume'u silmek veya değiştirmek yeni ve boş katalog oluşturur. Yayından önce seçili branch'i, `/data` mount'unu ve yedeği kontrol edin.
 
 ### Kalıcı veri
 
@@ -35,7 +87,7 @@ Fiyat alanına `95` veya `95,50` yazılır; binlik ayırıcı kullanılmaz. Foto
 - `/data/catalog.sqlite-wal`, `/data/catalog.sqlite-shm`: SQLite çalışma dosyaları.
 - `/data/uploads/`: yüklenen fotoğraflar.
 
-Yerel `data/`, `.env*` ve runtime verileri Git ve Docker build context dışında tutulur. Uygulama tek sunucu/tek instance için hazırlanmıştır; `/data` paylaşımıyla yatay ölçekleme amaçlanmaz. Kalıcı disk yedek değildir. Tutarlı yedek için uygulamayı durdurup `/data` dizininin tamamını kopyalayın; geri yüklerken de uygulama kapalı olmalı ve sahiplik korunmalıdır.
+Yerel `data/`, gerçek değer içeren `.env*` dosyaları ve runtime verileri Git ve Docker build context dışında tutulur; yalnızca boş/örnek ortam şablonları repoda bulunur. Uygulama tek sunucu/tek instance için hazırlanmıştır; `/data` paylaşımıyla yatay ölçekleme amaçlanmaz. Kalıcı disk yedek değildir. Tutarlı yedek için uygulamayı durdurup `/data` dizininin tamamını kopyalayın; geri yüklerken de uygulama kapalı olmalı ve sahiplik korunmalıdır.
 
 ## Mağaza ve sepet
 

@@ -8,3 +8,7 @@ reports
 test-results
 playwright-report
 *.tsbuildinfo
+.DS_Store
+**/*.sqlite
+**/*.sqlite-*
+coverage
